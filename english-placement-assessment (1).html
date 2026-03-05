@@ -1,0 +1,2598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Communication & Placement Readiness Assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy2: #1b2d42;
+  --navy3: #243b55;
+  --gold: #d4a843;
+  --gold2: #e8c06a;
+  --gold-pale: #fdf8ee;
+  --cream: #f8f6f1;
+  --white: #ffffff;
+  --border: #ddd8ce;
+  --muted: #6b7280;
+  --green: #15803d;
+  --green-bg: #dcfce7;
+  --red: #b91c1c;
+  --red-bg: #fee2e2;
+  --blue: #1e40af;
+  --blue-bg: #dbeafe;
+  --purple: #6d28d9;
+  --purple-bg: #ede9fe;
+  --orange: #c2410c;
+  --orange-bg: #ffedd5;
+  --shadow: 0 2px 20px rgba(13,27,42,0.08);
+  --shadow-md: 0 4px 32px rgba(13,27,42,0.12);
+  --shadow-lg: 0 8px 48px rgba(13,27,42,0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 10%, rgba(212,168,67,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 90% 90%, rgba(13,27,42,0.04) 0%, transparent 60%);
+}
+
+/* ── COVER PAGE ── */
+.cover {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 3rem 2rem;
+  background: var(--navy);
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(212,168,67,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 100% 100%, rgba(36,59,85,0.8) 0%, transparent 70%);
+}
+.cover-grid {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image: linear-gradient(var(--gold) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--gold) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.cover-inner { position: relative; text-align: center; max-width: 780px; }
+.cover-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(212,168,67,0.4);
+  padding: 6px 16px; border-radius: 2px; margin-bottom: 2rem;
+  animation: fadeUp 0.8s ease both;
+}
+.cover-badge::before, .cover-badge::after { content: '◆'; font-size: 0.5rem; }
+.cover h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700; line-height: 1.15;
+  color: var(--white); letter-spacing: -0.01em;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.cover h1 span { color: var(--gold); }
+.cover-meta {
+  margin-top: 2rem;
+  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+.meta-item {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(212,168,67,0.25);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.03);
+}
+.meta-item .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(212,168,67,0.7); display: block; margin-bottom: 4px;
+}
+.meta-item .value { font-size: 1.1rem; font-weight: 600; color: var(--white); }
+.cover-instructions {
+  margin-top: 2rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; padding: 1.2rem 1.5rem;
+  text-align: left;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.cover-instructions h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.8rem;
+}
+.cover-instructions li {
+  font-size: 0.88rem; color: rgba(255,255,255,0.75);
+  padding: 4px 0; padding-left: 1.2rem; position: relative; line-height: 1.5;
+}
+.cover-instructions li::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
+.start-btn {
+  margin-top: 2.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  padding: 14px 40px; border-radius: 4px;
+  border: 2px solid var(--gold); background: var(--gold);
+  color: var(--navy); cursor: pointer;
+  transition: all 0.2s; letter-spacing: 0.03em;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+.start-btn:hover { background: transparent; color: var(--gold); transform: translateY(-2px); }
+
+/* ── MAIN APP ── */
+.app { display: none; }
+.app.show { display: block; }
+
+/* ── STICKY HEADER ── */
+.app-header {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(13,27,42,0.97);
+  backdrop-filter: blur(12px);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px; border-bottom: 1px solid rgba(212,168,67,0.2);
+}
+.app-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 700; color: var(--white);
+  display: flex; align-items: center; gap: 8px;
+}
+.app-logo span { color: var(--gold); }
+.app-stats {
+  display: flex; align-items: center; gap: 1rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+}
+.stat-pill {
+  padding: 4px 12px; border-radius: 3px;
+  font-weight: 500;
+}
+.stat-score { background: var(--gold); color: var(--navy); }
+.stat-timer { background: rgba(255,255,255,0.1); color: var(--white); }
+.stat-timer.warning { background: #dc2626; color: white; animation: pulse 1s infinite; }
+
+/* ── SECTION NAVIGATION ── */
+.section-nav {
+  position: sticky; top: 60px; z-index: 190;
+  background: var(--white);
+  border-bottom: 2px solid var(--border);
+  display: flex; overflow-x: auto; gap: 0;
+  scrollbar-width: none;
+}
+.section-nav::-webkit-scrollbar { display: none; }
+.nav-tab {
+  flex-shrink: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 500;
+  padding: 14px 20px;
+  border: none; background: none; cursor: pointer;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-tab:hover { color: var(--navy); background: var(--cream); }
+.nav-tab.active { color: var(--navy); border-bottom-color: var(--gold); background: var(--gold-pale); }
+.nav-tab .marks { font-size: 0.6rem; background: var(--border); padding: 2px 5px; border-radius: 2px; }
+.nav-tab.active .marks { background: var(--gold); color: var(--navy); }
+.nav-tab.done .marks { background: var(--green); color: white; }
+
+/* ── PROGRESS BAR ── */
+.progress-wrap { background: var(--border); height: 3px; position: sticky; top: 116px; z-index: 185; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--navy), var(--gold)); transition: width 0.4s ease; }
+
+/* ── MAIN CONTENT ── */
+main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+.section-page { display: none; animation: fadeUp 0.4s ease; }
+.section-page.active { display: block; }
+
+/* ── SECTION TITLE BANNER ── */
+.section-banner {
+  background: var(--navy);
+  border-radius: 12px; padding: 1.6rem 2rem;
+  margin-bottom: 1.8rem; display: flex; align-items: center;
+  gap: 1.2rem; position: relative; overflow: hidden;
+}
+.section-banner::after {
+  content: attr(data-section);
+  position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem; font-weight: 700; color: rgba(255,255,255,0.04);
+  letter-spacing: -0.05em; pointer-events: none;
+}
+.banner-icon {
+  width: 52px; height: 52px; border-radius: 10px;
+  background: rgba(212,168,67,0.15);
+  border: 1px solid rgba(212,168,67,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; flex-shrink: 0;
+}
+.banner-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 700; color: var(--white);
+}
+.banner-text p { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 3px; }
+.banner-marks {
+  margin-left: auto; flex-shrink: 0;
+  font-family: 'JetBrains Mono', monospace;
+  text-align: right;
+}
+.banner-marks .m-num { font-size: 1.8rem; font-weight: 500; color: var(--gold); line-height: 1; }
+.banner-marks .m-label { font-size: 0.6rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* ── PART HEADER ── */
+.part-header {
+  display: flex; align-items: center; gap: 10px;
+  margin: 1.8rem 0 1.2rem;
+}
+.part-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--navy); color: var(--gold);
+  padding: 4px 10px; border-radius: 3px; flex-shrink: 0;
+}
+.part-title { font-size: 0.95rem; font-weight: 600; color: var(--navy); }
+.part-marks { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted); margin-left: auto; }
+.part-hr { flex: 1; height: 1px; background: var(--border); }
+
+/* ── QUESTION CARD ── */
+.q-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.4rem 1.6rem;
+  margin-bottom: 1rem; box-shadow: var(--shadow);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.q-card:hover { box-shadow: var(--shadow-md); }
+.q-card.answered { border-left: 3px solid var(--green); }
+.q-card.answered-wrong { border-left: 3px solid var(--red); }
+
+.q-row {
+  display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 0.9rem;
+}
+.q-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; font-weight: 500;
+  background: var(--navy); color: var(--gold);
+  padding: 3px 8px; border-radius: 3px;
+  flex-shrink: 0; margin-top: 2px;
+}
+.q-text { font-size: 0.95rem; font-weight: 500; line-height: 1.6; flex: 1; }
+
+.q-difficulty {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 2px; flex-shrink: 0;
+}
+.diff-easy { background: var(--green-bg); color: var(--green); }
+.diff-medium { background: var(--orange-bg); color: var(--orange); }
+.diff-hard { background: var(--red-bg); color: var(--red); }
+.diff-hr { background: var(--purple-bg); color: var(--purple); }
+
+.q-context {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem; line-height: 1.6;
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  padding: 10px 14px; border-radius: 0 6px 6px 0;
+  margin: 0.5rem 0 1rem; color: var(--navy2);
+}
+
+/* ── OPTIONS ── */
+.options { display: grid; gap: 0.5rem; }
+.option {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.7rem 1rem; border-radius: 8px;
+  border: 1.5px solid var(--border);
+  cursor: pointer; transition: all 0.18s;
+  font-size: 0.9rem; background: var(--cream);
+}
+.option:hover { border-color: var(--navy3); background: #f0f4f8; }
+.option.selected { border-color: var(--navy); background: #e8eef5; }
+.option.correct { border-color: var(--green); background: var(--green-bg); color: var(--green); font-weight: 600; }
+.option.wrong { border-color: var(--red); background: var(--red-bg); color: var(--red); }
+.opt-key {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 500;
+  width: 24px; height: 24px; border-radius: 4px;
+  background: var(--border); color: var(--muted);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: all 0.18s;
+}
+.option.selected .opt-key { background: var(--navy); color: var(--gold); }
+.option.correct .opt-key { background: var(--green); color: white; }
+.option.wrong .opt-key { background: var(--red); color: white; }
+
+/* ── FEEDBACK ── */
+.feedback {
+  margin-top: 0.8rem; padding: 0.75rem 1rem; border-radius: 6px;
+  font-size: 0.84rem; line-height: 1.6; display: none;
+}
+.feedback.show { display: block; animation: fadeUp 0.3s ease; }
+.fb-correct { background: var(--green-bg); color: var(--green); border-left: 3px solid var(--green); }
+.fb-wrong { background: var(--red-bg); color: var(--red); border-left: 3px solid var(--red); }
+.fb-info { background: var(--blue-bg); color: var(--blue); border-left: 3px solid var(--blue); }
+
+/* ── TEXT INPUTS ── */
+.ans-input {
+  width: 100%; padding: 0.8rem 1rem; margin-top: 0.6rem;
+  border: 1.5px solid var(--border); border-radius: 8px;
+  font-family: 'Outfit', sans-serif; font-size: 0.92rem;
+  background: var(--cream); color: var(--navy);
+  transition: border-color 0.2s; resize: vertical; min-height: 44px;
+}
+.ans-input:focus { outline: none; border-color: var(--navy3); box-shadow: 0 0 0 3px rgba(13,27,42,0.06); }
+textarea.ans-input { min-height: 120px; line-height: 1.6; }
+.ans-input.correct-input { border-color: var(--green); background: var(--green-bg); }
+.ans-input.wrong-input { border-color: var(--red); background: var(--red-bg); }
+
+.check-btn {
+  margin-top: 0.7rem;
+  font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600;
+  padding: 7px 18px; border-radius: 6px;
+  border: 1.5px solid var(--navy); background: var(--navy); color: var(--gold);
+  cursor: pointer; transition: all 0.2s;
+}
+.check-btn:hover { background: var(--navy2); }
+.check-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── WRITING TASK ── */
+.writing-task {
+  background: var(--white);
+  border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+.wt-header { background: var(--navy); padding: 1.4rem 1.8rem; }
+.wt-header .wt-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 0.5rem;
+}
+.wt-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 700; color: var(--white); line-height: 1.4;
+}
+.wt-header p { font-size: 0.84rem; color: rgba(255,255,255,0.55); margin-top: 4px; }
+.wt-tips {
+  background: var(--gold-pale); padding: 1rem 1.8rem;
+  border-bottom: 1px solid var(--border);
+}
+.wt-tips h4 { font-size: 0.8rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.wt-tips ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.wt-tips li {
+  font-size: 0.8rem; color: var(--muted); padding-left: 1.2rem;
+  position: relative; line-height: 1.5;
+}
+.wt-tips li::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
+.wt-body { padding: 1.4rem 1.8rem; }
+.word-counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; color: var(--muted);
+  margin-top: 6px; text-align: right; display: flex; justify-content: space-between; align-items: center;
+}
+.word-counter .wc-target { color: var(--navy2); font-weight: 500; }
+.word-counter .wc-current { color: var(--gold); font-weight: 600; }
+.analyze-btn {
+  margin-top: 0.9rem;
+  font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 600;
+  padding: 10px 22px; border-radius: 8px; border: none;
+  background: var(--navy); color: var(--gold);
+  cursor: pointer; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.analyze-btn:hover { background: var(--navy2); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.analyze-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+.spinner { width: 15px; height: 15px; border: 2px solid rgba(212,168,67,0.3); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; display: none; }
+
+.ai-fb-box {
+  margin-top: 1rem; background: var(--cream);
+  border: 1.5px solid var(--navy3); border-radius: 10px;
+  padding: 1.2rem 1.4rem; display: none;
+}
+.ai-fb-box.show { display: block; animation: fadeUp 0.4s ease; }
+.ai-fb-box h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 700; color: var(--navy);
+  margin-bottom: 0.7rem; display: flex; align-items: center; gap: 6px;
+}
+.ai-fb-box .fb-content { font-size: 0.86rem; line-height: 1.75; color: var(--navy2); }
+.ai-scores { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+.ai-score-chip {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 500;
+  padding: 4px 10px; border-radius: 3px; background: var(--navy); color: var(--gold);
+}
+
+/* ── PASSAGE BOX ── */
+.passage-box {
+  background: var(--navy);
+  border-radius: 10px; padding: 1.5rem 1.8rem;
+  margin-bottom: 1.5rem; position: relative;
+}
+.passage-box::before {
+  content: '"';
+  position: absolute; top: 0.5rem; left: 1.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem; color: rgba(212,168,67,0.15);
+  line-height: 1; pointer-events: none;
+}
+.passage-box p {
+  font-size: 0.92rem; line-height: 1.8; color: rgba(255,255,255,0.82);
+  position: relative;
+}
+.passage-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.8rem; display: block;
+}
+
+/* ── RUBRIC TABLE ── */
+.rubric-table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; font-size: 0.88rem; }
+.rubric-table th {
+  background: var(--navy); color: var(--gold);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 10px 14px; text-align: left;
+}
+.rubric-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.rubric-table tr:last-child td { border-bottom: none; }
+.rubric-table tr:nth-child(even) td { background: var(--cream); }
+.rubric-table .r-marks {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; color: var(--navy);
+  text-align: center;
+}
+
+/* ── RESULTS ── */
+.results-hero {
+  background: var(--navy); border-radius: 14px;
+  padding: 2.5rem; text-align: center;
+  margin-bottom: 1.5rem; position: relative; overflow: hidden;
+}
+.results-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212,168,67,0.2), transparent 60%);
+}
+.results-hero h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600; color: rgba(255,255,255,0.7);
+  position: relative;
+}
+.big-score {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6rem; font-weight: 700; color: var(--gold);
+  line-height: 1; position: relative;
+}
+.score-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; position: relative; }
+.score-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.score-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.2rem; text-align: center; box-shadow: var(--shadow);
+}
+.score-card .sc-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.4rem; }
+.score-card .sc-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem; font-weight: 700;
+}
+.sc-bar { height: 4px; border-radius: 99px; background: var(--border); margin-top: 0.6rem; overflow: hidden; }
+.sc-fill { height: 100%; border-radius: 99px; transition: width 0.8s 0.4s cubic-bezier(.4,0,.2,1); }
+
+.tips-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem; box-shadow: var(--shadow);
+}
+.tips-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem;
+}
+.tip-item {
+  font-size: 0.86rem; color: var(--muted); line-height: 1.6;
+  padding: 6px 0; border-bottom: 1px solid var(--border);
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.tip-item:last-child { border-bottom: none; }
+.tip-item strong { color: var(--navy); }
+
+.action-row { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.action-btn {
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 600;
+  padding: 11px 28px; border-radius: 6px; cursor: pointer; transition: all 0.2s;
+}
+.btn-primary { background: var(--navy); color: var(--gold); border: 2px solid var(--navy); }
+.btn-primary:hover { background: var(--navy2); }
+.btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+.btn-outline:hover { background: var(--navy); color: var(--gold); }
+
+/* ── INTERVIEW TIP ── */
+.int-tip {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%);
+  border-radius: 8px; padding: 1rem 1.3rem;
+  margin-top: 0.8rem; display: flex; gap: 0.8rem; align-items: flex-start;
+}
+.int-tip p { font-size: 0.82rem; color: rgba(255,255,255,0.72); line-height: 1.6; }
+.int-tip strong { color: var(--gold); }
+
+/* ── HORIZONTAL DIVIDER ── */
+.h-div {
+  display: flex; align-items: center; gap: 0.8rem;
+  margin: 1.5rem 0 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+.h-div::before, .h-div::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── MODEL ANSWER BOX ── */
+.model-ans {
+  background: #f0f9ff; border: 1px solid #bae6fd;
+  border-radius: 8px; padding: 1rem 1.2rem;
+  margin-top: 0.8rem; display: none;
+  font-size: 0.84rem; line-height: 1.7; color: #0c4a6e;
+}
+.model-ans.show { display: block; animation: fadeUp 0.3s ease; }
+.model-ans strong { color: #0369a1; }
+.show-model-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 4px;
+  border: 1px solid var(--border); background: var(--cream); color: var(--muted);
+  cursor: pointer; margin-top: 0.7rem; transition: all 0.2s;
+}
+.show-model-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px) {
+  .cover h1 { font-size: 1.8rem; }
+  .wt-tips ul { grid-template-columns: 1fr; }
+  .score-grid { grid-template-columns: 1fr 1fr; }
+  main { padding: 1.5rem 1rem 4rem; }
+  .banner-marks { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ COVER PAGE ══════════════ -->
+<div class="cover" id="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-inner">
+    <div class="cover-badge">Placement Preparation Programme</div>
+    <h1>English Communication &<br><span>Placement Readiness</span><br>Assessment</h1>
+    <div class="cover-meta">
+      <div class="meta-item"><span class="label">Duration</span><span class="value">2 Hours</span></div>
+      <div class="meta-item"><span class="label">Total Marks</span><span class="value">100</span></div>
+      <div class="meta-item"><span class="label">Sections</span><span class="value">6 (A–F)</span></div>
+      <div class="meta-item"><span class="label">Mode</span><span class="value">Online</span></div>
+    </div>
+    <div class="cover-instructions">
+      <h3>📋 Instructions</h3>
+      <ul>
+        <li>Answer all sections. No section is optional.</li>
+        <li>Write clearly and professionally in formal English.</li>
+        <li>Avoid informal language, contractions, and short forms.</li>
+        <li>Marks will be deducted for grammar errors and poor structure.</li>
+        <li>Use the Writing Tasks to get AI-powered feedback on your answers.</li>
+        <li>Click "Show Model Answer" after attempting each open-ended question.</li>
+      </ul>
+    </div>
+    <button class="start-btn" onclick="startAssessment()">▶ Begin Assessment</button>
+  </div>
+</div>
+
+<!-- ══════════════ MAIN APP ══════════════ -->
+<div class="app" id="app">
+
+  <header class="app-header">
+    <div class="app-logo">English<span>Edge</span> — Placement Assessment</div>
+    <div class="app-stats">
+      <span class="stat-pill stat-score" id="hdrScore">Score: 0</span>
+      <span class="stat-pill stat-timer" id="hdrTimer">⏱ 2:00:00</span>
+    </div>
+  </header>
+
+  <nav class="section-nav">
+    <button class="nav-tab active" onclick="navGoSection(0)" id="ntab0">A · Vocab <span class="marks" id="nm0">15</span></button>
+    <button class="nav-tab" onclick="navGoSection(1)" id="ntab1">B · Grammar <span class="marks" id="nm1">20</span></button>
+    <button class="nav-tab" onclick="navGoSection(2)" id="ntab2">C · Reading <span class="marks" id="nm2">10</span></button>
+    <button class="nav-tab" onclick="navGoSection(3)" id="ntab3">D · Writing <span class="marks" id="nm3">20</span></button>
+    <button class="nav-tab" onclick="navGoSection(4)" id="ntab4">E · Aptitude <span class="marks" id="nm4">15</span></button>
+    <button class="nav-tab" onclick="navGoSection(5)" id="ntab5">F · Interview <span class="marks" id="nm5">20</span></button>
+    <button class="nav-tab" onclick="navGoSection(6)" id="ntab6">🏆 Results <span class="marks" id="nm6">—</span></button>
+  </nav>
+
+  <div class="progress-wrap"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
+
+  <main>
+
+<!-- ═══════════════════════════════════════
+     SECTION A – VOCABULARY (15 Marks)
+═══════════════════════════════════════ -->
+<div class="section-page active" id="sec0">
+  <div class="section-banner" data-section="A">
+    <div class="banner-icon">📖</div>
+    <div class="banner-text">
+      <h2>Section A — Vocabulary</h2>
+      <p>Synonyms · Antonyms · One Word Substitution · Context Usage</p>
+    </div>
+    <div class="banner-marks"><div class="m-num">15</div><div class="m-label">Marks</div></div>
+  </div>
+
+  <!-- Part 1: Synonyms MCQ -->
+  <div class="part-header">
+    <span class="part-tag">Part 1</span>
+    <span class="part-title">Synonyms</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">5 × 1 = 5 Marks</span>
+  </div>
+
+  <div class="q-card" id="qa1">
+    <div class="q-row"><span class="q-num">A.1</span><div class="q-text">Choose the best synonym for <strong>"Efficient"</strong>:</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa1')"><span class="opt-key">A</span> Lazy</div>
+      <div class="option" onclick="pick(this,'qa1')"><span class="opt-key">B</span> Confused</div>
+      <div class="option" onclick="pick(this,'qa1')"><span class="opt-key">C</span> Productive</div>
+      <div class="option" onclick="pick(this,'qa1')"><span class="opt-key">D</span> Clumsy</div>
+    </div>
+    <div class="feedback" id="fb-qa1"></div>
+  </div>
+
+  <div class="q-card" id="qa2">
+    <div class="q-row"><span class="q-num">A.2</span><div class="q-text">Choose the best synonym for <strong>"Confident"</strong>:</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa2')"><span class="opt-key">A</span> Hesitant</div>
+      <div class="option" onclick="pick(this,'qa2')"><span class="opt-key">B</span> Assured</div>
+      <div class="option" onclick="pick(this,'qa2')"><span class="opt-key">C</span> Nervous</div>
+      <div class="option" onclick="pick(this,'qa2')"><span class="opt-key">D</span> Passive</div>
+    </div>
+    <div class="feedback" id="fb-qa2"></div>
+  </div>
+
+  <div class="q-card" id="qa3">
+    <div class="q-row"><span class="q-num">A.3</span><div class="q-text">Choose the best synonym for <strong>"Analyze"</strong>:</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa3')"><span class="opt-key">A</span> Ignore</div>
+      <div class="option" onclick="pick(this,'qa3')"><span class="opt-key">B</span> Guess</div>
+      <div class="option" onclick="pick(this,'qa3')"><span class="opt-key">C</span> Memorize</div>
+      <div class="option" onclick="pick(this,'qa3')"><span class="opt-key">D</span> Examine</div>
+    </div>
+    <div class="feedback" id="fb-qa3"></div>
+  </div>
+
+  <div class="q-card" id="qa4">
+    <div class="q-row"><span class="q-num">A.4</span><div class="q-text">Choose the best synonym for <strong>"Opportunity"</strong>:</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa4')"><span class="opt-key">A</span> Prospect</div>
+      <div class="option" onclick="pick(this,'qa4')"><span class="opt-key">B</span> Obstacle</div>
+      <div class="option" onclick="pick(this,'qa4')"><span class="opt-key">C</span> Failure</div>
+      <div class="option" onclick="pick(this,'qa4')"><span class="opt-key">D</span> Disadvantage</div>
+    </div>
+    <div class="feedback" id="fb-qa4"></div>
+  </div>
+
+  <div class="q-card" id="qa5">
+    <div class="q-row"><span class="q-num">A.5</span><div class="q-text">Choose the best synonym for <strong>"Reliable"</strong>:</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa5')"><span class="opt-key">A</span> Unpredictable</div>
+      <div class="option" onclick="pick(this,'qa5')"><span class="opt-key">B</span> Vague</div>
+      <div class="option" onclick="pick(this,'qa5')"><span class="opt-key">C</span> Dependable</div>
+      <div class="option" onclick="pick(this,'qa5')"><span class="opt-key">D</span> Careless</div>
+    </div>
+    <div class="feedback" id="fb-qa5"></div>
+  </div>
+
+  <!-- Part 2: Antonyms MCQ -->
+  <div class="part-header">
+    <span class="part-tag">Part 2</span>
+    <span class="part-title">Antonyms</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">5 × 1 = 5 Marks</span>
+  </div>
+
+  <div class="q-card" id="qa6">
+    <div class="q-row"><span class="q-num">A.6</span><div class="q-text">Select the antonym of <strong>"Strength"</strong>:</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa6')"><span class="opt-key">A</span> Power</div>
+      <div class="option" onclick="pick(this,'qa6')"><span class="opt-key">B</span> Weakness</div>
+      <div class="option" onclick="pick(this,'qa6')"><span class="opt-key">C</span> Ability</div>
+      <div class="option" onclick="pick(this,'qa6')"><span class="opt-key">D</span> Talent</div>
+    </div>
+    <div class="feedback" id="fb-qa6"></div>
+  </div>
+
+  <div class="q-card" id="qa7">
+    <div class="q-row"><span class="q-num">A.7</span><div class="q-text">Select the antonym of <strong>"Expand"</strong>:</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa7')"><span class="opt-key">A</span> Grow</div>
+      <div class="option" onclick="pick(this,'qa7')"><span class="opt-key">B</span> Extend</div>
+      <div class="option" onclick="pick(this,'qa7')"><span class="opt-key">C</span> Contract</div>
+      <div class="option" onclick="pick(this,'qa7')"><span class="opt-key">D</span> Widen</div>
+    </div>
+    <div class="feedback" id="fb-qa7"></div>
+  </div>
+
+  <div class="q-card" id="qa8">
+    <div class="q-row"><span class="q-num">A.8</span><div class="q-text">Select the antonym of <strong>"Accept"</strong>:</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa8')"><span class="opt-key">A</span> Receive</div>
+      <div class="option" onclick="pick(this,'qa8')"><span class="opt-key">B</span> Welcome</div>
+      <div class="option" onclick="pick(this,'qa8')"><span class="opt-key">C</span> Approve</div>
+      <div class="option" onclick="pick(this,'qa8')"><span class="opt-key">D</span> Reject</div>
+    </div>
+    <div class="feedback" id="fb-qa8"></div>
+  </div>
+
+  <div class="q-card" id="qa9">
+    <div class="q-row"><span class="q-num">A.9</span><div class="q-text">Select the antonym of <strong>"Increase"</strong>:</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa9')"><span class="opt-key">A</span> Decrease</div>
+      <div class="option" onclick="pick(this,'qa9')"><span class="opt-key">B</span> Enhance</div>
+      <div class="option" onclick="pick(this,'qa9')"><span class="opt-key">C</span> Multiply</div>
+      <div class="option" onclick="pick(this,'qa9')"><span class="opt-key">D</span> Amplify</div>
+    </div>
+    <div class="feedback" id="fb-qa9"></div>
+  </div>
+
+  <div class="q-card" id="qa10">
+    <div class="q-row"><span class="q-num">A.10</span><div class="q-text">Select the antonym of <strong>"Success"</strong>:</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa10')"><span class="opt-key">A</span> Achievement</div>
+      <div class="option" onclick="pick(this,'qa10')"><span class="opt-key">B</span> Victory</div>
+      <div class="option" onclick="pick(this,'qa10')"><span class="opt-key">C</span> Failure</div>
+      <div class="option" onclick="pick(this,'qa10')"><span class="opt-key">D</span> Progress</div>
+    </div>
+    <div class="feedback" id="fb-qa10"></div>
+  </div>
+
+  <!-- Part 3: One Word Substitution MCQ -->
+  <div class="part-header">
+    <span class="part-tag">Part 3</span>
+    <span class="part-title">One Word Substitution</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">5 × 1 = 5 Marks</span>
+  </div>
+
+  <div class="q-card" id="qa11">
+    <div class="q-row"><span class="q-num">A.11</span><div class="q-text">One word for: <em>"A person who leads a team"</em></div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa11')"><span class="opt-key">A</span> Subordinate</div>
+      <div class="option" onclick="pick(this,'qa11')"><span class="opt-key">B</span> Leader</div>
+      <div class="option" onclick="pick(this,'qa11')"><span class="opt-key">C</span> Novice</div>
+      <div class="option" onclick="pick(this,'qa11')"><span class="opt-key">D</span> Colleague</div>
+    </div>
+    <div class="feedback" id="fb-qa11"></div>
+  </div>
+
+  <div class="q-card" id="qa12">
+    <div class="q-row"><span class="q-num">A.12</span><div class="q-text">One word for: <em>"A short description of a project"</em></div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa12')"><span class="opt-key">A</span> Thesis</div>
+      <div class="option" onclick="pick(this,'qa12')"><span class="opt-key">B</span> Report</div>
+      <div class="option" onclick="pick(this,'qa12')"><span class="opt-key">C</span> Synopsis</div>
+      <div class="option" onclick="pick(this,'qa12')"><span class="opt-key">D</span> Manuscript</div>
+    </div>
+    <div class="feedback" id="fb-qa12"></div>
+  </div>
+
+  <div class="q-card" id="qa13">
+    <div class="q-row"><span class="q-num">A.13</span><div class="q-text">One word for: <em>"Fear of public speaking"</em></div><span class="q-difficulty diff-hard">Hard</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa13')"><span class="opt-key">A</span> Glossophobia</div>
+      <div class="option" onclick="pick(this,'qa13')"><span class="opt-key">B</span> Claustrophobia</div>
+      <div class="option" onclick="pick(this,'qa13')"><span class="opt-key">C</span> Xenophobia</div>
+      <div class="option" onclick="pick(this,'qa13')"><span class="opt-key">D</span> Acrophobia</div>
+    </div>
+    <div class="feedback" id="fb-qa13"></div>
+  </div>
+
+  <div class="q-card" id="qa14">
+    <div class="q-row"><span class="q-num">A.14</span><div class="q-text">One word for: <em>"A person applying for a job"</em></div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa14')"><span class="opt-key">A</span> Employee</div>
+      <div class="option" onclick="pick(this,'qa14')"><span class="opt-key">B</span> Employer</div>
+      <div class="option" onclick="pick(this,'qa14')"><span class="opt-key">C</span> Manager</div>
+      <div class="option" onclick="pick(this,'qa14')"><span class="opt-key">D</span> Applicant</div>
+    </div>
+    <div class="feedback" id="fb-qa14"></div>
+  </div>
+
+  <div class="q-card" id="qa15">
+    <div class="q-row"><span class="q-num">A.15</span><div class="q-text">One word for: <em>"A formal written request"</em></div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qa15')"><span class="opt-key">A</span> Memo</div>
+      <div class="option" onclick="pick(this,'qa15')"><span class="opt-key">B</span> Application</div>
+      <div class="option" onclick="pick(this,'qa15')"><span class="opt-key">C</span> Invoice</div>
+      <div class="option" onclick="pick(this,'qa15')"><span class="opt-key">D</span> Notice</div>
+    </div>
+    <div class="feedback" id="fb-qa15"></div>
+  </div>
+
+  <div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+    <button class="action-btn btn-primary" onclick="goSection(1)">Next: Grammar →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION B – GRAMMAR (20 Marks)
+═══════════════════════════════════════ -->
+<div class="section-page" id="sec1">
+  <div class="section-banner" data-section="B">
+    <div class="banner-icon">✏️</div>
+    <div class="banner-text">
+      <h2>Section B — Grammar & Usage</h2>
+      <p>Error Identification · Formal Rewriting · Tenses · Active/Passive · Conjunctions</p>
+    </div>
+    <div class="banner-marks"><div class="m-num">20</div><div class="m-label">Marks</div></div>
+  </div>
+
+  <div class="part-header">
+    <span class="part-tag">Part 1</span>
+    <span class="part-title">Error Identification — Choose the Correct Version</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">5 × 1 = 5 Marks</span>
+  </div>
+
+  <div class="q-card" id="qb1">
+    <div class="q-row"><span class="q-num">B.1</span><div class="q-text">Identify the corrected version of: <em>"She have completed the project yesterday."</em></div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb1')"><span class="opt-key">A</span> She has completed the project yesterday.</div>
+      <div class="option" onclick="pick(this,'qb1')"><span class="opt-key">B</span> She were completing the project yesterday.</div>
+      <div class="option" onclick="pick(this,'qb1')"><span class="opt-key">C</span> She completed the project yesterday.</div>
+      <div class="option" onclick="pick(this,'qb1')"><span class="opt-key">D</span> She had been completing the project yesterday.</div>
+    </div>
+    <div class="feedback" id="fb-qb1"></div>
+  </div>
+
+  <div class="q-card" id="qb2">
+    <div class="q-row"><span class="q-num">B.2</span><div class="q-text">Identify the corrected version of: <em>"He don't know the answer."</em></div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb2')"><span class="opt-key">A</span> He does not know the answer.</div>
+      <div class="option" onclick="pick(this,'qb2')"><span class="opt-key">B</span> He didn't knows the answer.</div>
+      <div class="option" onclick="pick(this,'qb2')"><span class="opt-key">C</span> He do not know the answer.</div>
+      <div class="option" onclick="pick(this,'qb2')"><span class="opt-key">D</span> He not knowing the answer.</div>
+    </div>
+    <div class="feedback" id="fb-qb2"></div>
+  </div>
+
+  <div class="q-card" id="qb3">
+    <div class="q-row"><span class="q-num">B.3</span><div class="q-text">Identify the corrected version of: <em>"I am working here since two years."</em></div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb3')"><span class="opt-key">A</span> I am working here for two years.</div>
+      <div class="option" onclick="pick(this,'qb3')"><span class="opt-key">B</span> I have been working here for two years.</div>
+      <div class="option" onclick="pick(this,'qb3')"><span class="opt-key">C</span> I was working here since two years.</div>
+      <div class="option" onclick="pick(this,'qb3')"><span class="opt-key">D</span> I worked here since two years.</div>
+    </div>
+    <div class="feedback" id="fb-qb3"></div>
+  </div>
+
+  <div class="q-card" id="qb4">
+    <div class="q-row"><span class="q-num">B.4</span><div class="q-text">Identify the corrected version of: <em>"The informations are not clear."</em></div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb4')"><span class="opt-key">A</span> The informations is not clear.</div>
+      <div class="option" onclick="pick(this,'qb4')"><span class="opt-key">B</span> The information are not clear.</div>
+      <div class="option" onclick="pick(this,'qb4')"><span class="opt-key">C</span> The informations were not clear.</div>
+      <div class="option" onclick="pick(this,'qb4')"><span class="opt-key">D</span> The information is not clear.</div>
+    </div>
+    <div class="feedback" id="fb-qb4"></div>
+  </div>
+
+  <div class="q-card" id="qb5">
+    <div class="q-row"><span class="q-num">B.5</span><div class="q-text">Identify the corrected version of: <em>"Each students must submit their assignment."</em></div><span class="q-difficulty diff-hard">Hard</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb5')"><span class="opt-key">A</span> Each students must submits their assignment.</div>
+      <div class="option" onclick="pick(this,'qb5')"><span class="opt-key">B</span> Each students must to submit his assignment.</div>
+      <div class="option" onclick="pick(this,'qb5')"><span class="opt-key">C</span> Each student must submit his or her assignment.</div>
+      <div class="option" onclick="pick(this,'qb5')"><span class="opt-key">D</span> Each student must submitted their assignments.</div>
+    </div>
+    <div class="feedback" id="fb-qb5"></div>
+  </div>
+
+  <!-- Part 2: Formal Rewriting -->
+  <div class="part-header">
+    <span class="part-tag">Part 2</span>
+    <span class="part-title">Rewrite Formally — Choose the Best Formal Version</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">5 × 1 = 5 Marks</span>
+  </div>
+
+  <div class="q-card" id="qb6">
+    <div class="q-row"><span class="q-num">B.6</span><div class="q-text">Formal version of: <em>"I wanna apply for this job."</em></div><span class="q-difficulty diff-hr">Interview</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb6')"><span class="opt-key">A</span> I am wanting to apply for this job opening.</div>
+      <div class="option" onclick="pick(this,'qb6')"><span class="opt-key">B</span> I would like to apply for the position advertised.</div>
+      <div class="option" onclick="pick(this,'qb6')"><span class="opt-key">C</span> I am writing to say I want the job.</div>
+      <div class="option" onclick="pick(this,'qb6')"><span class="opt-key">D</span> Kindly consider my application for job.</div>
+    </div>
+    <div class="feedback" id="fb-qb6"></div>
+  </div>
+
+  <div class="q-card" id="qb7">
+    <div class="q-row"><span class="q-num">B.7</span><div class="q-text">Formal version of: <em>"I did many works in my internship."</em></div><span class="q-difficulty diff-hr">Interview</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb7')"><span class="opt-key">A</span> I worked many things during my internship period.</div>
+      <div class="option" onclick="pick(this,'qb7')"><span class="opt-key">B</span> My internship had lots of works which I completed.</div>
+      <div class="option" onclick="pick(this,'qb7')"><span class="opt-key">C</span> During my internship, I completed several meaningful projects and contributed to the team's goals.</div>
+      <div class="option" onclick="pick(this,'qb7')"><span class="opt-key">D</span> I had did many different works in my internship company.</div>
+    </div>
+    <div class="feedback" id="fb-qb7"></div>
+  </div>
+
+  <div class="q-card" id="qb8">
+    <div class="q-row"><span class="q-num">B.8</span><div class="q-text">Formal version of: <em>"I am very good in coding."</em></div><span class="q-difficulty diff-hr">Interview</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb8')"><span class="opt-key">A</span> I am very much good at doing coding work.</div>
+      <div class="option" onclick="pick(this,'qb8')"><span class="opt-key">B</span> Coding is something that I do very good.</div>
+      <div class="option" onclick="pick(this,'qb8')"><span class="opt-key">C</span> I have very good coding since long time.</div>
+      <div class="option" onclick="pick(this,'qb8')"><span class="opt-key">D</span> I am proficient in programming languages including Python, Java, and C++.</div>
+    </div>
+    <div class="feedback" id="fb-qb8"></div>
+  </div>
+
+  <div class="q-card" id="qb9">
+    <div class="q-row"><span class="q-num">B.9</span><div class="q-text">Formal version of: <em>"Please send me the details fast."</em></div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb9')"><span class="opt-key">A</span> I would appreciate it if you could share the details at your earliest convenience.</div>
+      <div class="option" onclick="pick(this,'qb9')"><span class="opt-key">B</span> Send me the details as fast as possible.</div>
+      <div class="option" onclick="pick(this,'qb9')"><span class="opt-key">C</span> Kindly fast-send the details to me.</div>
+      <div class="option" onclick="pick(this,'qb9')"><span class="opt-key">D</span> I need details. Please send quickly.</div>
+    </div>
+    <div class="feedback" id="fb-qb9"></div>
+  </div>
+
+  <div class="q-card" id="qb10">
+    <div class="q-row"><span class="q-num">B.10</span><div class="q-text">Formal version of: <em>"I didn't went to the interview."</em></div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb10')"><span class="opt-key">A</span> I had not went to the interview scheduled.</div>
+      <div class="option" onclick="pick(this,'qb10')"><span class="opt-key">B</span> I didn't had gone to the interview.</div>
+      <div class="option" onclick="pick(this,'qb10')"><span class="opt-key">C</span> I was unable to attend the interview due to unforeseen circumstances.</div>
+      <div class="option" onclick="pick(this,'qb10')"><span class="opt-key">D</span> I had not gone to the interview because I could not go.</div>
+    </div>
+    <div class="feedback" id="fb-qb10"></div>
+  </div>
+
+  <!-- Part 3: Tense & Subject-Verb Agreement -->
+  <div class="part-header">
+    <span class="part-tag">Part 3</span>
+    <span class="part-title">Tense & Subject-Verb Agreement</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">5 × 1 = 5 Marks</span>
+  </div>
+
+  <div class="q-card" id="qb11">
+    <div class="q-row"><span class="q-num">B.11</span><div class="q-text">Choose the correct sentence:</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb11')"><span class="opt-key">A</span> Neither of the candidates were selected.</div>
+      <div class="option" onclick="pick(this,'qb11')"><span class="opt-key">B</span> Neither of the candidates was selected.</div>
+      <div class="option" onclick="pick(this,'qb11')"><span class="opt-key">C</span> Neither of the candidates have been selected.</div>
+      <div class="option" onclick="pick(this,'qb11')"><span class="opt-key">D</span> Neither of the candidate was selected.</div>
+    </div>
+    <div class="feedback" id="fb-qb11"></div>
+  </div>
+
+  <div class="q-card" id="qb12">
+    <div class="q-row"><span class="q-num">B.12</span><div class="q-text">Choose the correct sentence:</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb12')"><span class="opt-key">A</span> The news are shocking.</div>
+      <div class="option" onclick="pick(this,'qb12')"><span class="opt-key">B</span> The news were shocking.</div>
+      <div class="option" onclick="pick(this,'qb12')"><span class="opt-key">C</span> The news is shocking.</div>
+      <div class="option" onclick="pick(this,'qb12')"><span class="opt-key">D</span> The news have been shocking.</div>
+    </div>
+    <div class="feedback" id="fb-qb12"></div>
+  </div>
+
+  <div class="q-card" id="qb13">
+    <div class="q-row"><span class="q-num">B.13</span><div class="q-text">Select the correct tense: "By the time she arrived, we ___ dinner."</div><span class="q-difficulty diff-hard">Hard</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb13')"><span class="opt-key">A</span> finished</div>
+      <div class="option" onclick="pick(this,'qb13')"><span class="opt-key">B</span> have finished</div>
+      <div class="option" onclick="pick(this,'qb13')"><span class="opt-key">C</span> had finished</div>
+      <div class="option" onclick="pick(this,'qb13')"><span class="opt-key">D</span> were finishing</div>
+    </div>
+    <div class="feedback" id="fb-qb13"></div>
+  </div>
+
+  <div class="q-card" id="qb14">
+    <div class="q-row"><span class="q-num">B.14</span><div class="q-text">Choose the grammatically correct sentence:</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb14')"><span class="opt-key">A</span> One of my friends are a doctor.</div>
+      <div class="option" onclick="pick(this,'qb14')"><span class="opt-key">B</span> One of my friends is a doctor.</div>
+      <div class="option" onclick="pick(this,'qb14')"><span class="opt-key">C</span> One of my friend are a doctor.</div>
+      <div class="option" onclick="pick(this,'qb14')"><span class="opt-key">D</span> One of my friends were a doctor.</div>
+    </div>
+    <div class="feedback" id="fb-qb14"></div>
+  </div>
+
+  <div class="q-card" id="qb15">
+    <div class="q-row"><span class="q-num">B.15</span><div class="q-text">Fill in with correct article: "She gave ___ honest opinion during the meeting."</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb15')"><span class="opt-key">A</span> a</div>
+      <div class="option" onclick="pick(this,'qb15')"><span class="opt-key">B</span> an</div>
+      <div class="option" onclick="pick(this,'qb15')"><span class="opt-key">C</span> the</div>
+      <div class="option" onclick="pick(this,'qb15')"><span class="opt-key">D</span> no article needed</div>
+    </div>
+    <div class="feedback" id="fb-qb15"></div>
+  </div>
+
+  <!-- Part 4: Active/Passive & Conjunctions -->
+  <div class="part-header">
+    <span class="part-tag">Part 4</span>
+    <span class="part-title">Active / Passive Voice & Conjunctions</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">5 × 1 = 5 Marks</span>
+  </div>
+
+  <div class="q-card" id="qb16">
+    <div class="q-row"><span class="q-num">B.16</span><div class="q-text">Convert to passive voice: "The manager approved the report."</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb16')"><span class="opt-key">A</span> The report was approved by the manager.</div>
+      <div class="option" onclick="pick(this,'qb16')"><span class="opt-key">B</span> The report is approved by the manager.</div>
+      <div class="option" onclick="pick(this,'qb16')"><span class="opt-key">C</span> The report has been approved by manager.</div>
+      <div class="option" onclick="pick(this,'qb16')"><span class="opt-key">D</span> The report were approved by the manager.</div>
+    </div>
+    <div class="feedback" id="fb-qb16"></div>
+  </div>
+
+  <div class="q-card" id="qb17">
+    <div class="q-row"><span class="q-num">B.17</span><div class="q-text">Convert to active voice: "Mistakes were made by the team."</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb17')"><span class="opt-key">A</span> The team had made mistakes.</div>
+      <div class="option" onclick="pick(this,'qb17')"><span class="opt-key">B</span> The team made mistakes.</div>
+      <div class="option" onclick="pick(this,'qb17')"><span class="opt-key">C</span> Mistakes are made by the team.</div>
+      <div class="option" onclick="pick(this,'qb17')"><span class="opt-key">D</span> The team is making mistakes.</div>
+    </div>
+    <div class="feedback" id="fb-qb17"></div>
+  </div>
+
+  <div class="q-card" id="qb18">
+    <div class="q-row"><span class="q-num">B.18</span><div class="q-text">Choose the correct conjunction: "He is intelligent ___ he lacks confidence."</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb18')"><span class="opt-key">A</span> and</div>
+      <div class="option" onclick="pick(this,'qb18')"><span class="opt-key">B</span> so</div>
+      <div class="option" onclick="pick(this,'qb18')"><span class="opt-key">C</span> but</div>
+      <div class="option" onclick="pick(this,'qb18')"><span class="opt-key">D</span> because</div>
+    </div>
+    <div class="feedback" id="fb-qb18"></div>
+  </div>
+
+  <div class="q-card" id="qb19">
+    <div class="q-row"><span class="q-num">B.19</span><div class="q-text">Choose the correct conjunction: "___ you work hard, you will succeed."</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb19')"><span class="opt-key">A</span> Although</div>
+      <div class="option" onclick="pick(this,'qb19')"><span class="opt-key">B</span> Unless</div>
+      <div class="option" onclick="pick(this,'qb19')"><span class="opt-key">C</span> If</div>
+      <div class="option" onclick="pick(this,'qb19')"><span class="opt-key">D</span> Despite</div>
+    </div>
+    <div class="feedback" id="fb-qb19"></div>
+  </div>
+
+  <div class="q-card" id="qb20">
+    <div class="q-row"><span class="q-num">B.20</span><div class="q-text">Identify the sentence with correct use of preposition:</div><span class="q-difficulty diff-hard">Hard</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qb20')"><span class="opt-key">A</span> She is married with a doctor.</div>
+      <div class="option" onclick="pick(this,'qb20')"><span class="opt-key">B</span> She is married to a doctor.</div>
+      <div class="option" onclick="pick(this,'qb20')"><span class="opt-key">C</span> She is married by a doctor.</div>
+      <div class="option" onclick="pick(this,'qb20')"><span class="opt-key">D</span> She is married for a doctor.</div>
+    </div>
+    <div class="feedback" id="fb-qb20"></div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;margin-top:1.5rem">
+    <button class="action-btn btn-outline" onclick="goSection(0)">← Vocabulary</button>
+    <button class="action-btn btn-primary" onclick="goSection(2)">Next: Reading →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION C – READING COMPREHENSION (10 Marks)
+═══════════════════════════════════════ -->
+<div class="section-page" id="sec2">
+  <div class="section-banner" data-section="C">
+    <div class="banner-icon">📰</div>
+    <div class="banner-text">
+      <h2>Section C — Reading Comprehension</h2>
+      <p>Two Passages · Read carefully · Answer precisely · Use passage vocabulary</p>
+    </div>
+    <div class="banner-marks"><div class="m-num">10</div><div class="m-label">Marks</div></div>
+  </div>
+
+  <div class="h-div"><span>Passage 1</span></div>
+
+  <div class="passage-box">
+    <span class="passage-tag">📄 Read the following passage carefully</span>
+    <p>In today's competitive job market, communication skills play a crucial role in career success. Employers not only evaluate technical knowledge but also assess how effectively a candidate can express ideas, work in teams, and handle professional conversations. Strong communication builds confidence and creates a positive first impression during interviews. Furthermore, professionals who communicate clearly are more likely to be considered for leadership roles and promotions. In a diverse workplace, the ability to listen actively, speak with clarity, and write professionally distinguishes exceptional employees from average ones.</p>
+  </div>
+
+  <div class="q-card" id="qc1">
+    <div class="q-row"><span class="q-num">C.1</span><div class="q-text">What plays a crucial role in career success according to the passage?</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qc1')"><span class="opt-key">A</span> Having a high CGPA</div>
+      <div class="option" onclick="pick(this,'qc1')"><span class="opt-key">B</span> Communication skills</div>
+      <div class="option" onclick="pick(this,'qc1')"><span class="opt-key">C</span> Knowing multiple programming languages</div>
+      <div class="option" onclick="pick(this,'qc1')"><span class="opt-key">D</span> Having work experience only</div>
+    </div>
+    <div class="feedback" id="fb-qc1"></div>
+  </div>
+
+  <div class="q-card" id="qc2">
+    <div class="q-row"><span class="q-num">C.2</span><div class="q-text">Apart from technical knowledge, what do employers assess?</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qc2')"><span class="opt-key">A</span> The candidate's social media following</div>
+      <div class="option" onclick="pick(this,'qc2')"><span class="opt-key">B</span> The candidate's college rankings</div>
+      <div class="option" onclick="pick(this,'qc2')"><span class="opt-key">C</span> How effectively a candidate can express ideas, work in teams, and handle professional conversations</div>
+      <div class="option" onclick="pick(this,'qc2')"><span class="opt-key">D</span> The candidate's dress sense</div>
+    </div>
+    <div class="feedback" id="fb-qc2"></div>
+  </div>
+
+  <div class="q-card" id="qc3">
+    <div class="q-row"><span class="q-num">C.3</span><div class="q-text">Why is communication important during interviews according to the passage?</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qc3')"><span class="opt-key">A</span> It builds confidence and creates a positive first impression</div>
+      <div class="option" onclick="pick(this,'qc3')"><span class="opt-key">B</span> It replaces the need for technical skills</div>
+      <div class="option" onclick="pick(this,'qc3')"><span class="opt-key">C</span> It helps in memorising the company's information</div>
+      <div class="option" onclick="pick(this,'qc3')"><span class="opt-key">D</span> It guarantees salary negotiation success</div>
+    </div>
+    <div class="feedback" id="fb-qc3"></div>
+  </div>
+
+  <div class="q-card" id="qc4">
+    <div class="q-row"><span class="q-num">C.4</span><div class="q-text">Find the word from the passage that means <strong>"judges or evaluates"</strong>:</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qc4')"><span class="opt-key">A</span> Expresses</div>
+      <div class="option" onclick="pick(this,'qc4')"><span class="opt-key">B</span> Distinguishes</div>
+      <div class="option" onclick="pick(this,'qc4')"><span class="opt-key">C</span> Communicates</div>
+      <div class="option" onclick="pick(this,'qc4')"><span class="opt-key">D</span> Assesses</div>
+    </div>
+    <div class="feedback" id="fb-qc4"></div>
+  </div>
+
+  <div class="q-card" id="qc5">
+    <div class="q-row"><span class="q-num">C.5</span><div class="q-text">Which title best suits this passage?</div><span class="q-difficulty diff-hr">Interview</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qc5')"><span class="opt-key">A</span> Technical Skills for Engineers</div>
+      <div class="option" onclick="pick(this,'qc5')"><span class="opt-key">B</span> The Power of Communication in Professional Success</div>
+      <div class="option" onclick="pick(this,'qc5')"><span class="opt-key">C</span> How to Pass Engineering Exams</div>
+      <div class="option" onclick="pick(this,'qc5')"><span class="opt-key">D</span> Tips for Writing a Resume</div>
+    </div>
+    <div class="feedback" id="fb-qc5"></div>
+  </div>
+
+  <div class="h-div"><span>Passage 2</span></div>
+
+  <div class="passage-box">
+    <span class="passage-tag">📄 Read the following passage carefully</span>
+    <p>Teamwork is an essential component of a productive workplace. When individuals collaborate effectively, they bring diverse skills and perspectives to solve complex problems more efficiently than any single person could alone. A good team is built on trust, clear communication, and shared goals. Leaders who encourage open dialogue and recognise each member's contribution create an environment where creativity thrives. Studies show that organisations with strong team culture report higher employee satisfaction and lower attrition rates. In today's fast-paced corporate world, the ability to work in a team is considered as important as technical expertise by most recruiters.</p>
+  </div>
+
+  <div class="q-card" id="qc6">
+    <div class="q-row"><span class="q-num">C.6</span><div class="q-text">According to the passage, what makes a good team?</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qc6')"><span class="opt-key">A</span> High salaries and bonuses</div>
+      <div class="option" onclick="pick(this,'qc6')"><span class="opt-key">B</span> Trust, clear communication, and shared goals</div>
+      <div class="option" onclick="pick(this,'qc6')"><span class="opt-key">C</span> A large number of employees</div>
+      <div class="option" onclick="pick(this,'qc6')"><span class="opt-key">D</span> Advanced technology and tools</div>
+    </div>
+    <div class="feedback" id="fb-qc6"></div>
+  </div>
+
+  <div class="q-card" id="qc7">
+    <div class="q-row"><span class="q-num">C.7</span><div class="q-text">What do organisations with strong team culture report, according to the passage?</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qc7')"><span class="opt-key">A</span> Higher profits and market share</div>
+      <div class="option" onclick="pick(this,'qc7')"><span class="opt-key">B</span> More conflicts and challenges</div>
+      <div class="option" onclick="pick(this,'qc7')"><span class="opt-key">C</span> Higher employee satisfaction and lower attrition rates</div>
+      <div class="option" onclick="pick(this,'qc7')"><span class="opt-key">D</span> Faster product delivery timelines</div>
+    </div>
+    <div class="feedback" id="fb-qc7"></div>
+  </div>
+
+  <div class="q-card" id="qc8">
+    <div class="q-row"><span class="q-num">C.8</span><div class="q-text">What role do leaders play in effective teamwork, as described in the passage?</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qc8')"><span class="opt-key">A</span> They control every decision to maintain order</div>
+      <div class="option" onclick="pick(this,'qc8')"><span class="opt-key">B</span> They encourage open dialogue and recognise contributions</div>
+      <div class="option" onclick="pick(this,'qc8')"><span class="opt-key">C</span> They assign tasks without seeking feedback</div>
+      <div class="option" onclick="pick(this,'qc8')"><span class="opt-key">D</span> They focus only on technical output</div>
+    </div>
+    <div class="feedback" id="fb-qc8"></div>
+  </div>
+
+  <div class="q-card" id="qc9">
+    <div class="q-row"><span class="q-num">C.9</span><div class="q-text">Find a word from Passage 2 that means <strong>"the rate at which employees leave a company"</strong>:</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qc9')"><span class="opt-key">A</span> Collaboration</div>
+      <div class="option" onclick="pick(this,'qc9')"><span class="opt-key">B</span> Attrition</div>
+      <div class="option" onclick="pick(this,'qc9')"><span class="opt-key">C</span> Dialogue</div>
+      <div class="option" onclick="pick(this,'qc9')"><span class="opt-key">D</span> Expertise</div>
+    </div>
+    <div class="feedback" id="fb-qc9"></div>
+  </div>
+
+  <div class="q-card" id="qc10">
+    <div class="q-row"><span class="q-num">C.10</span><div class="q-text">What is the central idea of Passage 2?</div><span class="q-difficulty diff-hr">Interview</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qc10')"><span class="opt-key">A</span> Technical skills are all that matter in the workplace</div>
+      <div class="option" onclick="pick(this,'qc10')"><span class="opt-key">B</span> Teamwork is a vital skill valued by organisations and recruiters</div>
+      <div class="option" onclick="pick(this,'qc10')"><span class="opt-key">C</span> Leaders should control employees strictly</div>
+      <div class="option" onclick="pick(this,'qc10')"><span class="opt-key">D</span> Large teams always perform better than small teams</div>
+    </div>
+    <div class="feedback" id="fb-qc10"></div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;margin-top:1.5rem">
+    <button class="action-btn btn-outline" onclick="goSection(1)">← Grammar</button>
+    <button class="action-btn btn-primary" onclick="goSection(3)">Next: Writing →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION D – WRITING SKILLS (20 Marks)
+═══════════════════════════════════════ -->
+<div class="section-page" id="sec3">
+  <div class="section-banner" data-section="D">
+    <div class="banner-icon">📝</div>
+    <div class="banner-text">
+      <h2>Section D — Writing Skills</h2>
+      <p>Professional Email · Paragraph Writing · AI-Powered Feedback</p>
+    </div>
+    <div class="banner-marks"><div class="m-num">20</div><div class="m-label">Marks</div></div>
+  </div>
+
+  <div class="part-header">
+    <span class="part-tag">Part 1</span>
+    <span class="part-title">Email Writing</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">10 Marks</span>
+  </div>
+
+  <div class="writing-task">
+    <div class="wt-header">
+      <span class="wt-tag">✉️ D.1 — Professional Email</span>
+      <h3>Write a professional email applying for a Software Developer Internship</h3>
+      <p>Address it to the HR Manager, TechSolutions Pvt. Ltd. Include all mandatory components below.</p>
+    </div>
+    <div class="wt-tips">
+      <h4>📋 Mandatory Components (marks for each):</h4>
+      <ul>
+        <li>Subject line — clear and specific (1)</li>
+        <li>Formal salutation (1)</li>
+        <li>Introduction — who you are and why you're writing (2)</li>
+        <li>Skills & qualifications relevant to internship (3)</li>
+        <li>Professional closing and signature (2)</li>
+        <li>Word limit: 120–150 words (1 mark deducted if exceeded)</li>
+      </ul>
+    </div>
+    <div class="wt-body">
+      <textarea class="ans-input" id="wd1" placeholder="Subject: Application for Software Developer Internship&#10;&#10;Dear HR Manager,&#10;&#10;I am writing to express..." oninput="wc('wd1','wc1')" rows="10"></textarea>
+      <div class="word-counter"><span class="wc-target">Target: 120–150 words</span><span>Words: <span class="wc-current" id="wc1">0</span></span></div>
+      <button class="analyze-btn" id="btn-wd1" onclick="aiAnalyze('wd1','aifb1','btn-wd1','sp1','email')">
+        <div class="spinner" id="sp1"></div>✨ Get AI Feedback
+      </button>
+      <div class="ai-fb-box" id="aifb1">
+        <h4>🤖 AI Writing Coach Feedback</h4>
+        <div class="fb-content" id="aifb1-text"></div>
+        <div class="ai-scores" id="aifb1-scores"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part-header">
+    <span class="part-tag">Part 2</span>
+    <span class="part-title">Paragraph Writing — "Why should a company hire you?"</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">10 Marks</span>
+  </div>
+
+  <div class="writing-task">
+    <div class="wt-header">
+      <span class="wt-tag">💼 D.2 — Paragraph Writing (200 Words)</span>
+      <h3>"Why should a company hire you?"</h3>
+      <p>Write a well-structured 200-word paragraph. Follow the structure provided.</p>
+    </div>
+    <div class="wt-tips">
+      <h4>📋 Required Structure (marks allocation):</h4>
+      <ul>
+        <li>Introduction — state your value (2)</li>
+        <li>Skills — technical and soft skills with examples (3)</li>
+        <li>Strengths — 2–3 key professional strengths (3)</li>
+        <li>Conclusion — how you contribute to company growth (2)</li>
+      </ul>
+    </div>
+    <div class="wt-body">
+      <textarea class="ans-input" id="wd2" placeholder="A company should hire me because..." oninput="wc('wd2','wc2')" rows="10"></textarea>
+      <div class="word-counter"><span class="wc-target">Target: 180–220 words</span><span>Words: <span class="wc-current" id="wc2">0</span></span></div>
+      <button class="analyze-btn" id="btn-wd2" onclick="aiAnalyze('wd2','aifb2','btn-wd2','sp2','para')">
+        <div class="spinner" id="sp2"></div>✨ Get AI Feedback
+      </button>
+      <div class="ai-fb-box" id="aifb2">
+        <h4>🤖 AI Writing Coach Feedback</h4>
+        <div class="fb-content" id="aifb2-text"></div>
+        <div class="ai-scores" id="aifb2-scores"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;margin-top:1.5rem">
+    <button class="action-btn btn-outline" onclick="goSection(2)">← Reading</button>
+    <button class="action-btn btn-primary" onclick="goSection(4)">Next: Aptitude →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION E – APTITUDE VERBAL (15 Marks)
+═══════════════════════════════════════ -->
+<div class="section-page" id="sec4">
+  <div class="section-banner" data-section="E">
+    <div class="banner-icon">🧠</div>
+    <div class="banner-text">
+      <h2>Section E — Aptitude Verbal Ability</h2>
+      <p>Fill in the Blanks · Sentence Rearrangement · Error Spotting</p>
+    </div>
+    <div class="banner-marks"><div class="m-num">15</div><div class="m-label">Marks</div></div>
+  </div>
+
+  <div class="part-header">
+    <span class="part-tag">Part 1</span>
+    <span class="part-title">Fill in the Blanks — Prepositions</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">5 × 1 = 5 Marks</span>
+  </div>
+
+  <div class="q-card" id="qe1">
+    <div class="q-row"><span class="q-num">E.1</span><div class="q-text">She is responsible ___ managing the team.</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe1')"><span class="opt-key">A</span> of</div>
+      <div class="option" onclick="pick(this,'qe1')"><span class="opt-key">B</span> in</div>
+      <div class="option" onclick="pick(this,'qe1')"><span class="opt-key">C</span> for</div>
+      <div class="option" onclick="pick(this,'qe1')"><span class="opt-key">D</span> at</div>
+    </div>
+    <div class="feedback" id="fb-qe1"></div>
+  </div>
+
+  <div class="q-card" id="qe2">
+    <div class="q-row"><span class="q-num">E.2</span><div class="q-text">He succeeded ___ completing the task on time.</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe2')"><span class="opt-key">A</span> for</div>
+      <div class="option" onclick="pick(this,'qe2')"><span class="opt-key">B</span> in</div>
+      <div class="option" onclick="pick(this,'qe2')"><span class="opt-key">C</span> to</div>
+      <div class="option" onclick="pick(this,'qe2')"><span class="opt-key">D</span> at</div>
+    </div>
+    <div class="feedback" id="fb-qe2"></div>
+  </div>
+
+  <div class="q-card" id="qe3">
+    <div class="q-row"><span class="q-num">E.3</span><div class="q-text">The meeting will start ___ 10 AM.</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe3')"><span class="opt-key">A</span> in</div>
+      <div class="option" onclick="pick(this,'qe3')"><span class="opt-key">B</span> on</div>
+      <div class="option" onclick="pick(this,'qe3')"><span class="opt-key">C</span> by</div>
+      <div class="option" onclick="pick(this,'qe3')"><span class="opt-key">D</span> at</div>
+    </div>
+    <div class="feedback" id="fb-qe3"></div>
+  </div>
+
+  <div class="q-card" id="qe4">
+    <div class="q-row"><span class="q-num">E.4</span><div class="q-text">She is interested ___ data science and machine learning.</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe4')"><span class="opt-key">A</span> in</div>
+      <div class="option" onclick="pick(this,'qe4')"><span class="opt-key">B</span> for</div>
+      <div class="option" onclick="pick(this,'qe4')"><span class="opt-key">C</span> of</div>
+      <div class="option" onclick="pick(this,'qe4')"><span class="opt-key">D</span> about</div>
+    </div>
+    <div class="feedback" id="fb-qe4"></div>
+  </div>
+
+  <div class="q-card" id="qe5">
+    <div class="q-row"><span class="q-num">E.5</span><div class="q-text">The project was completed ___ time despite the challenges.</div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe5')"><span class="opt-key">A</span> in</div>
+      <div class="option" onclick="pick(this,'qe5')"><span class="opt-key">B</span> within</div>
+      <div class="option" onclick="pick(this,'qe5')"><span class="opt-key">C</span> on</div>
+      <div class="option" onclick="pick(this,'qe5')"><span class="opt-key">D</span> at</div>
+    </div>
+    <div class="feedback" id="fb-qe5"></div>
+  </div>
+
+  <!-- Part 2: Sentence Rearrangement -->
+  <div class="part-header">
+    <span class="part-tag">Part 2</span>
+    <span class="part-title">Sentence Rearrangement — Choose the Correct Order</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">5 × 1 = 5 Marks</span>
+  </div>
+
+  <div class="q-card" id="qe6">
+    <div class="q-row"><span class="q-num">E.6</span><div class="q-text">Rearrange: <em>skills / communication / important / are / interviews / in</em></div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe6')"><span class="opt-key">A</span> Important communication are in skills interviews.</div>
+      <div class="option" onclick="pick(this,'qe6')"><span class="opt-key">B</span> Communication skills are important in interviews.</div>
+      <div class="option" onclick="pick(this,'qe6')"><span class="opt-key">C</span> In interviews important are communication skills.</div>
+      <div class="option" onclick="pick(this,'qe6')"><span class="opt-key">D</span> Skills communication in important are interviews.</div>
+    </div>
+    <div class="feedback" id="fb-qe6"></div>
+  </div>
+
+  <div class="q-card" id="qe7">
+    <div class="q-row"><span class="q-num">E.7</span><div class="q-text">Rearrange: <em>completed / successfully / project / the / team / the</em></div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe7')"><span class="opt-key">A</span> Successfully the project completed the team.</div>
+      <div class="option" onclick="pick(this,'qe7')"><span class="opt-key">B</span> The project successfully the team completed.</div>
+      <div class="option" onclick="pick(this,'qe7')"><span class="opt-key">C</span> The team successfully completed the project.</div>
+      <div class="option" onclick="pick(this,'qe7')"><span class="opt-key">D</span> Completed the team the project successfully.</div>
+    </div>
+    <div class="feedback" id="fb-qe7"></div>
+  </div>
+
+  <div class="q-card" id="qe8">
+    <div class="q-row"><span class="q-num">E.8</span><div class="q-text">Rearrange: <em>opportunity / great / was / it / learning / a</em></div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe8')"><span class="opt-key">A</span> Great it was a learning opportunity.</div>
+      <div class="option" onclick="pick(this,'qe8')"><span class="opt-key">B</span> It was opportunity a great learning.</div>
+      <div class="option" onclick="pick(this,'qe8')"><span class="opt-key">C</span> A learning great it was opportunity.</div>
+      <div class="option" onclick="pick(this,'qe8')"><span class="opt-key">D</span> It was a great learning opportunity.</div>
+    </div>
+    <div class="feedback" id="fb-qe8"></div>
+  </div>
+
+  <div class="q-card" id="qe9">
+    <div class="q-row"><span class="q-num">E.9</span><div class="q-text">Rearrange: <em>preparing / for / I / interview / am / the</em></div><span class="q-difficulty diff-easy">Easy</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe9')"><span class="opt-key">A</span> I am preparing for the interview.</div>
+      <div class="option" onclick="pick(this,'qe9')"><span class="opt-key">B</span> For the interview I preparing am.</div>
+      <div class="option" onclick="pick(this,'qe9')"><span class="opt-key">C</span> Preparing I am the interview for.</div>
+      <div class="option" onclick="pick(this,'qe9')"><span class="opt-key">D</span> The interview for am I preparing.</div>
+    </div>
+    <div class="feedback" id="fb-qe9"></div>
+  </div>
+
+  <div class="q-card" id="qe10">
+    <div class="q-row"><span class="q-num">E.10</span><div class="q-text">Rearrange: <em>leadership / shows / confidence / true</em></div><span class="q-difficulty diff-hard">Hard</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe10')"><span class="opt-key">A</span> Confidence leadership true shows.</div>
+      <div class="option" onclick="pick(this,'qe10')"><span class="opt-key">B</span> True shows confidence leadership.</div>
+      <div class="option" onclick="pick(this,'qe10')"><span class="opt-key">C</span> True leadership shows confidence.</div>
+      <div class="option" onclick="pick(this,'qe10')"><span class="opt-key">D</span> Shows true leadership confidence.</div>
+    </div>
+    <div class="feedback" id="fb-qe10"></div>
+  </div>
+
+  <!-- Part 3: Error Spotting in Sentences -->
+  <div class="part-header">
+    <span class="part-tag">Part 3</span>
+    <span class="part-title">Error Spotting — Identify the Incorrect Part</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">5 × 1 = 5 Marks</span>
+  </div>
+
+  <div class="q-card" id="qe11">
+    <div class="q-row"><span class="q-num">E.11</span><div class="q-text">Spot the error: "He is one of the best student in the class."</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe11')"><span class="opt-key">A</span> "He is one of" — should be "He is among"</div>
+      <div class="option" onclick="pick(this,'qe11')"><span class="opt-key">B</span> "best student" — should be "best students"</div>
+      <div class="option" onclick="pick(this,'qe11')"><span class="opt-key">C</span> "in the class" — should be "of the class"</div>
+      <div class="option" onclick="pick(this,'qe11')"><span class="opt-key">D</span> No error</div>
+    </div>
+    <div class="feedback" id="fb-qe11"></div>
+  </div>
+
+  <div class="q-card" id="qe12">
+    <div class="q-row"><span class="q-num">E.12</span><div class="q-text">Spot the error: "Despite of his efforts, he failed the exam."</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe12')"><span class="opt-key">A</span> "Despite of" — should be "Despite"</div>
+      <div class="option" onclick="pick(this,'qe12')"><span class="opt-key">B</span> "his efforts" — should be "him efforts"</div>
+      <div class="option" onclick="pick(this,'qe12')"><span class="opt-key">C</span> "he failed" — should be "he has failed"</div>
+      <div class="option" onclick="pick(this,'qe12')"><span class="opt-key">D</span> No error</div>
+    </div>
+    <div class="feedback" id="fb-qe12"></div>
+  </div>
+
+  <div class="q-card" id="qe13">
+    <div class="q-row"><span class="q-num">E.13</span><div class="q-text">Spot the error: "She explained me the entire project plan."</div><span class="q-difficulty diff-hard">Hard</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe13')"><span class="opt-key">A</span> "She explained" — should be "She had explained"</div>
+      <div class="option" onclick="pick(this,'qe13')"><span class="opt-key">B</span> "explained me" — should be "explained to me"</div>
+      <div class="option" onclick="pick(this,'qe13')"><span class="opt-key">C</span> "entire project" — should be "whole project"</div>
+      <div class="option" onclick="pick(this,'qe13')"><span class="opt-key">D</span> No error</div>
+    </div>
+    <div class="feedback" id="fb-qe13"></div>
+  </div>
+
+  <div class="q-card" id="qe14">
+    <div class="q-row"><span class="q-num">E.14</span><div class="q-text">Spot the error: "The committee have decided to postpone the event."</div><span class="q-difficulty diff-medium">Medium</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe14')"><span class="opt-key">A</span> "The committee" — should be "A committee"</div>
+      <div class="option" onclick="pick(this,'qe14')"><span class="opt-key">B</span> "have decided" — should be "has decided"</div>
+      <div class="option" onclick="pick(this,'qe14')"><span class="opt-key">C</span> "to postpone" — should be "for postponing"</div>
+      <div class="option" onclick="pick(this,'qe14')"><span class="opt-key">D</span> No error</div>
+    </div>
+    <div class="feedback" id="fb-qe14"></div>
+  </div>
+
+  <div class="q-card" id="qe15">
+    <div class="q-row"><span class="q-num">E.15</span><div class="q-text">Spot the error: "I look forward to meet you at the conference."</div><span class="q-difficulty diff-hard">Hard</span></div>
+    <div class="options">
+      <div class="option" onclick="pick(this,'qe15')"><span class="opt-key">A</span> "I look forward" — should be "I am looking forward"</div>
+      <div class="option" onclick="pick(this,'qe15')"><span class="opt-key">B</span> "to meet" — should be "to meeting"</div>
+      <div class="option" onclick="pick(this,'qe15')"><span class="opt-key">C</span> "at the conference" — should be "in the conference"</div>
+      <div class="option" onclick="pick(this,'qe15')"><span class="opt-key">D</span> No error</div>
+    </div>
+    <div class="feedback" id="fb-qe15"></div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;margin-top:1.5rem">
+    <button class="action-btn btn-outline" onclick="goSection(3)">← Writing</button>
+    <button class="action-btn btn-primary" onclick="goSection(5)">Next: Interview →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION F – INTERVIEW-ORIENTED WRITING (20 Marks)
+═══════════════════════════════════════ -->
+<div class="section-page" id="sec5">
+  <div class="section-banner" data-section="F">
+    <div class="banner-icon">🎤</div>
+    <div class="banner-text">
+      <h2>Section F — Interview-Oriented Writing</h2>
+      <p>Self Introduction · HR Questions · Strengths & Weaknesses</p>
+    </div>
+    <div class="banner-marks"><div class="m-num">20</div><div class="m-label">Marks</div></div>
+  </div>
+
+  <div class="part-header">
+    <span class="part-tag">Part 1</span>
+    <span class="part-title">Professional Self Introduction</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">10 Marks</span>
+  </div>
+
+  <div class="writing-task">
+    <div class="wt-header">
+      <span class="wt-tag">🎤 F.1 — Self Introduction (150–200 words)</span>
+      <h3>Write your professional self-introduction for a campus placement interview</h3>
+      <p>Imagine you are sitting before a panel of interviewers. Write exactly what you would say.</p>
+    </div>
+    <div class="wt-tips">
+      <h4>📋 Must Include (marks allocation):</h4>
+      <ul>
+        <li>Name and educational background (2)</li>
+        <li>Technical skills with specific examples (3)</li>
+        <li>Internship, project, or achievement (2)</li>
+        <li>Career goal and company fit (2)</li>
+        <li>Confident, professional tone (1)</li>
+      </ul>
+    </div>
+    <div class="wt-body">
+      <textarea class="ans-input" id="wf1" placeholder="Good morning! My name is [Name]. I am a final-year student..." oninput="wc('wf1','wf1c')" rows="10"></textarea>
+      <div class="word-counter"><span class="wc-target">Target: 150–200 words</span><span>Words: <span class="wc-current" id="wf1c">0</span></span></div>
+      <button class="analyze-btn" id="btn-wf1" onclick="aiAnalyze('wf1','aifb3','btn-wf1','sp3','intro')">
+        <div class="spinner" id="sp3"></div>✨ Get AI Feedback
+      </button>
+      <div class="ai-fb-box" id="aifb3">
+        <h4>🤖 AI Interview Coach Feedback</h4>
+        <div class="fb-content" id="aifb3-text"></div>
+        <div class="ai-scores" id="aifb3-scores"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part-header">
+    <span class="part-tag">Part 2</span>
+    <span class="part-title">HR Question — Strengths & Weaknesses</span>
+    <span class="part-hr"></span>
+    <span class="part-marks">10 Marks</span>
+  </div>
+
+  <div class="writing-task">
+    <div class="wt-header">
+      <span class="wt-tag">💬 F.2 — HR Question (150 words)</span>
+      <h3>"What are your strengths and weaknesses?"</h3>
+      <p>Answer this professionally. Be honest but strategic — show self-awareness and a growth mindset.</p>
+    </div>
+    <div class="wt-tips">
+      <h4>📋 Evaluation Criteria:</h4>
+      <ul>
+        <li>State 2–3 genuine strengths with brief examples (3)</li>
+        <li>Mention 1 weakness honestly (2)</li>
+        <li>Show how you are improving the weakness (3)</li>
+        <li>Professional tone and structured response (2)</li>
+      </ul>
+    </div>
+    <div class="wt-body">
+      <textarea class="ans-input" id="wf2" placeholder="My greatest strength is..." oninput="wc('wf2','wf2c')" rows="8"></textarea>
+      <div class="word-counter"><span class="wc-target">Target: 130–160 words</span><span>Words: <span class="wc-current" id="wf2c">0</span></span></div>
+      <button class="analyze-btn" id="btn-wf2" onclick="aiAnalyze('wf2','aifb4','btn-wf2','sp4','sw')">
+        <div class="spinner" id="sp4"></div>✨ Get AI Feedback
+      </button>
+      <div class="ai-fb-box" id="aifb4">
+        <h4>🤖 AI Interview Coach Feedback</h4>
+        <div class="fb-content" id="aifb4-text"></div>
+        <div class="ai-scores" id="aifb4-scores"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;margin-top:1.5rem">
+    <button class="action-btn btn-outline" onclick="goSection(4)">← Aptitude</button>
+    <button class="action-btn btn-primary" onclick="goSection(6)">🏆 View Results</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     RESULTS PAGE
+═══════════════════════════════════════ -->
+<div class="section-page" id="sec6">
+  <div class="section-banner" data-section="★">
+    <div class="banner-icon">🏆</div>
+    <div class="banner-text">
+      <h2>Assessment Results</h2>
+      <p>Your performance summary · Personalised improvement plan</p>
+    </div>
+    <div class="banner-marks"><div class="m-num" id="finalPct">—</div><div class="m-label">Score %</div></div>
+  </div>
+
+  <div class="results-hero">
+    <h2>Your Total Score (MCQ Section)</h2>
+    <div class="big-score" id="rBig">—</div>
+    <div class="score-subtitle" id="rSub">Complete the sections to see your score</div>
+  </div>
+
+  <div class="score-grid">
+    <div class="score-card">
+      <div class="sc-label">Section A · Vocabulary</div>
+      <div class="sc-val" id="rs-a" style="color:var(--navy)">—</div>
+      <div class="sc-bar"><div class="sc-fill" id="rf-a" style="width:0%;background:var(--gold)"></div></div>
+    </div>
+    <div class="score-card">
+      <div class="sc-label">Section B · Grammar</div>
+      <div class="sc-val" id="rs-b" style="color:var(--navy)">—</div>
+      <div class="sc-bar"><div class="sc-fill" id="rf-b" style="width:0%;background:var(--navy)"></div></div>
+    </div>
+    <div class="score-card">
+      <div class="sc-label">Section C · Reading</div>
+      <div class="sc-val" id="rs-c" style="color:var(--navy)">—</div>
+      <div class="sc-bar"><div class="sc-fill" id="rf-c" style="width:0%;background:var(--teal,#1a6b6b)"></div></div>
+    </div>
+    <div class="score-card">
+      <div class="sc-label">Section E · Aptitude</div>
+      <div class="sc-val" id="rs-e" style="color:var(--navy)">—</div>
+      <div class="sc-bar"><div class="sc-fill" id="rf-e" style="width:0%;background:var(--purple)"></div></div>
+    </div>
+    <div class="score-card">
+      <div class="sc-label">Questions Answered</div>
+      <div class="sc-val" id="rs-att" style="color:var(--navy)">0 / 60</div>
+      <div class="sc-bar"><div class="sc-fill" id="rf-att" style="width:0%;background:var(--green)"></div></div>
+    </div>
+    <div class="score-card">
+      <div class="sc-label">Accuracy Rate</div>
+      <div class="sc-val" id="rs-acc" style="color:var(--navy)">—%</div>
+      <div class="sc-bar"><div class="sc-fill" id="rf-acc" style="width:0%;background:var(--red)"></div></div>
+    </div>
+  </div>
+
+  <div class="tips-card">
+    <h3>📊 Evaluation Rubric — For Trainer Reference</h3>
+    <table class="rubric-table">
+      <thead><tr><th>Section</th><th>Component</th><th>Marks</th><th>Criteria</th></tr></thead>
+      <tbody>
+        <tr><td>A · Vocabulary</td><td>All Parts (15 Qs)</td><td class="r-marks">15</td><td>Correct word choice, spelling accuracy</td></tr>
+        <tr><td>B · Grammar</td><td>Error ID + Formal Rewrite + Tenses + Active/Passive (20 Qs)</td><td class="r-marks">20</td><td>Tense accuracy, sentence clarity, error-free writing</td></tr>
+        <tr><td>C · Reading</td><td>2 Passages × 5 Questions (10 Qs)</td><td class="r-marks">10</td><td>Correct answers from passage, inference ability</td></tr>
+        <tr><td>D · Writing</td><td>Email + Paragraph Writing</td><td class="r-marks">20</td><td>Structure (5) · Grammar (5) · Vocabulary (5) · Tone (5)</td></tr>
+        <tr><td>E · Aptitude</td><td>Fill + Rearrangement + Error Spotting (15 Qs)</td><td class="r-marks">15</td><td>Accuracy, logical arrangement, error identification</td></tr>
+        <tr><td>F · Interview</td><td>Self Intro + HR Answer</td><td class="r-marks">20</td><td>Professional language · Confidence · Structure · Relevance</td></tr>
+        <tr style="font-weight:700"><td colspan="2">TOTAL (MCQ: 60 marks auto-graded)</td><td class="r-marks">100</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tips-card" id="improveTips">
+    <h3>🎯 Personalised Improvement Plan</h3>
+    <div id="tipsList">
+      <div class="tip-item">⏳ Complete the assessment sections to unlock your personalised improvement tips.</div>
+    </div>
+  </div>
+
+  <div class="action-row">
+    <button class="action-btn btn-primary" onclick="openCertModal()">🖨️ Print Certificate</button>
+    <button class="action-btn btn-outline" onclick="restartAll()">↺ Restart Assessment</button>
+  </div>
+</div>
+
+  </main>
+</div><!-- /app -->
+
+<!-- ══════════ STUDENT DETAILS MODAL ══════════ -->
+<div id="certModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(13,27,42,0.7);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:#fff;border-radius:16px;padding:2rem;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;">
+    <button onclick="closeCertModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.2rem;cursor:pointer;color:#6b7280;">✕</button>
+    <div style="text-align:center;margin-bottom:1.5rem;">
+      <div style="font-size:2rem;margin-bottom:0.5rem;">🎓</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:#0d1b2a;">Student Details</h2>
+      <p style="font-size:0.84rem;color:#6b7280;margin-top:4px;">Please fill in your details before printing the certificate</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div>
+        <label style="font-size:0.78rem;font-weight:600;color:#0d1b2a;display:block;margin-bottom:5px;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;">Admission Number *</label>
+        <input id="certAdmNo" type="text" placeholder="e.g. 22CS1234" style="width:100%;padding:0.75rem 1rem;border:1.5px solid #ddd8ce;border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#ddd8ce'">
+      </div>
+      <div>
+        <label style="font-size:0.78rem;font-weight:600;color:#0d1b2a;display:block;margin-bottom:5px;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;">Full Name *</label>
+        <input id="certName" type="text" placeholder="e.g. Priya Sharma" style="width:100%;padding:0.75rem 1rem;border:1.5px solid #ddd8ce;border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#ddd8ce'">
+      </div>
+      <div>
+        <label style="font-size:0.78rem;font-weight:600;color:#0d1b2a;display:block;margin-bottom:5px;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;">Batch / Year *</label>
+        <input id="certBatch" type="text" placeholder="e.g. 2022–2026 / CSE-B" style="width:100%;padding:0.75rem 1rem;border:1.5px solid #ddd8ce;border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#ddd8ce'">
+      </div>
+      <div id="certErr" style="color:#b91c1c;font-size:0.82rem;display:none;">⚠ Please fill in all fields before proceeding.</div>
+      <button onclick="generateAndPrint()" style="margin-top:0.5rem;background:#0d1b2a;color:#d4a843;border:none;padding:12px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#1b2d42'" onmouseout="this.style.background='#0d1b2a'">
+        Generate & Print Certificate →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PRINT CERTIFICATE (hidden until print) ══════════ -->
+<div id="printCert">
+</div>
+
+<style>
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body > *:not(#printCert) { display: none !important; }
+  #printCert { display: block !important; }
+  @page { size: A4 portrait; margin: 0mm; }
+  .cert-page { page-break-after: avoid; page-break-inside: avoid; }
+}
+
+#printCert {
+  display: none;
+  font-family: 'Outfit', sans-serif;
+  color: #1a1a2e;
+}
+
+/* ── EXACT A4 ── */
+.cert-page {
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  background: #ffffff;
+  position: relative;
+}
+
+/* ── TOP ACCENT BAR ── */
+.cert-topbar {
+  height: 7mm;
+  background: linear-gradient(90deg, #1a3a5c 0%, #1e5f8e 50%, #1a3a5c 100%);
+  width: 100%;
+}
+
+/* ── INNER CONTENT AREA ── */
+.cert-inner {
+  padding: 5mm 12mm 5mm;
+  position: relative;
+}
+
+/* Subtle side rule */
+.cert-inner::before {
+  content: '';
+  position: absolute;
+  left: 7mm; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #1e5f8e 0%, #b8a040 50%, #1e5f8e 100%);
+}
+
+/* ── LOGO / HEADER ── */
+.ch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dce4ed;
+  padding-bottom: 3mm;
+  margin-bottom: 3mm;
+}
+.ch-left { }
+.ch-left .inst {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #1e5f8e;
+}
+.ch-left .title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15pt;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.2;
+  margin: 1mm 0 0.5mm;
+}
+.ch-left .sub {
+  font-size: 6pt;
+  color: #7a8a9a;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.ch-badge {
+  text-align: right;
+  background: #f0f6fb;
+  border: 1px solid #cde0f0;
+  border-radius: 4px;
+  padding: 2.5mm 4mm;
+  flex-shrink: 0;
+}
+.ch-badge .cb-lbl { font-size: 5.5pt; color: #7a8a9a; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; }
+.ch-badge .cb-val { font-family: 'Cormorant Garamond', serif; font-size: 13pt; font-weight: 700; color: #1a3a5c; line-height: 1.1; }
+.ch-badge .cb-sub { font-size: 5.5pt; color: #7a8a9a; font-family: 'JetBrains Mono', monospace; }
+
+/* ── DIVIDER RULE WITH LABEL ── */
+.cert-rule {
+  display: flex; align-items: center; gap: 3mm;
+  margin: 2.5mm 0;
+}
+.cert-rule::before, .cert-rule::after { content: ''; flex: 1; height: 0.5px; background: #cde0f0; }
+.cert-rule span { font-family: 'JetBrains Mono', monospace; font-size: 5.5pt; letter-spacing: 0.18em; text-transform: uppercase; color: #1e5f8e; white-space: nowrap; }
+
+/* ── STUDENT INFO BAND ── */
+.csrow {
+  display: flex; background: #f5f9fd;
+  border: 1px solid #dce4ed; border-radius: 4px;
+  overflow: hidden; margin-bottom: 3mm;
+}
+.csrow .sf {
+  flex: 1; padding: 2.5mm 3.5mm;
+  border-right: 1px solid #dce4ed;
+}
+.csrow .sf:last-child { border-right: none; }
+.csrow .sl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5.5pt; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #7a8a9a;
+  display: block; margin-bottom: 0.8mm;
+}
+.csrow .sv { font-size: 8.5pt; font-weight: 700; color: #1a1a2e; }
+
+/* ── SCORE BAND ── */
+.cscore {
+  background: #f0f6fb;
+  border: 1px solid #cde0f0;
+  border-left: 4px solid #1e5f8e;
+  border-radius: 0 4px 4px 0;
+  display: flex; align-items: stretch;
+  margin-bottom: 3mm; overflow: hidden;
+}
+.cscore-cell {
+  flex: 1; padding: 2.5mm 4mm;
+  border-right: 1px solid #dce4ed;
+  text-align: center;
+}
+.cscore-cell:last-child { border-right: none; }
+.cscore-cell .scc-lbl { font-family:'JetBrains Mono',monospace; font-size:5.5pt; letter-spacing:0.1em; text-transform:uppercase; color:#7a8a9a; margin-bottom:0.5mm; }
+.cscore-cell .scc-val { font-family:'Cormorant Garamond',serif; font-size:16pt; font-weight:700; color:#1a3a5c; line-height:1; }
+.cscore-cell .scc-sub { font-size:6pt; color:#7a8a9a; margin-top:0.5mm; }
+.cscore-cell.highlight .scc-val { color:#1e5f8e; }
+.status-pass { color: #15803d !important; }
+.status-fail { color: #b91c1c !important; }
+
+/* ── TABLE ── */
+.ctbl { width:100%; border-collapse:collapse; margin-bottom:3mm; font-size:7pt; }
+.ctbl thead tr { background: #1a3a5c; }
+.ctbl thead th {
+  padding: 2mm 3mm; text-align: left;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5.5pt; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #cde0f0; font-weight: 500;
+}
+.ctbl thead th:not(:first-child) { text-align: center; }
+.ctbl tbody tr:nth-child(even) { background: #f5f9fd; }
+.ctbl tbody tr:hover { background: #eaf2f9; }
+.ctbl tbody td { padding: 1.8mm 3mm; border-bottom: 0.5px solid #e2eaf2; color: #1a1a2e; }
+.ctbl tbody td:not(:first-child) { text-align: center; }
+.ctbl tbody td:last-child { font-weight: 700; font-size: 8pt; }
+.ctbl tfoot tr { background: #1a3a5c; }
+.ctbl tfoot td { padding: 2mm 3mm; color: #cde0f0; font-weight: 700; font-size: 7pt; }
+.ctbl tfoot td:not(:first-child) { text-align: center; }
+
+/* ── PERF BARS ── */
+.cprow { display: flex; gap: 2.5mm; margin-bottom: 3mm; }
+.cpi {
+  flex: 1; background: #f5f9fd;
+  border: 1px solid #dce4ed; border-radius: 3px;
+  padding: 2mm 2.5mm; text-align: center;
+}
+.cpi .pi-lbl { font-family:'JetBrains Mono',monospace; font-size:5pt; color:#7a8a9a; letter-spacing:0.1em; text-transform:uppercase; }
+.cpi .pi-val { font-family:'Cormorant Garamond',serif; font-size:11pt; font-weight:700; color:#1a3a5c; line-height:1.2; margin:0.5mm 0; }
+.cpi .pi-bar { height:1.5mm; border-radius:99px; background:#dce4ed; overflow:hidden; }
+.cpi .pi-fill { height:100%; border-radius:99px; }
+
+/* ── IMPROVEMENT ── */
+.cimp {
+  background: #f5f9fd;
+  border: 1px solid #dce4ed;
+  border-left: 3px solid #b8a040;
+  border-radius: 0 4px 4px 0;
+  padding: 2.5mm 3.5mm; margin-bottom: 3mm;
+}
+.cimp h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9pt; font-weight: 700;
+  color: #1a3a5c; margin-bottom: 1.5mm;
+}
+.cimp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.cimp-item {
+  display: flex; gap: 2mm; align-items: flex-start;
+  padding: 1.2mm 1.5mm; border-bottom: 0.5px solid #e2eaf2;
+  font-size: 6pt; color: #374151; line-height: 1.5;
+}
+.cimp-item:nth-child(odd) { border-right: 0.5px solid #e2eaf2; }
+.cimp-item .itag {
+  background: #1a3a5c; color: #cde0f0;
+  font-family: 'JetBrains Mono', monospace; font-size: 4.5pt;
+  letter-spacing: 0.08em; padding: 0.8mm 1.5mm;
+  border-radius: 2px; flex-shrink: 0; margin-top: 0.5mm;
+  text-transform: uppercase;
+}
+
+/* ── FOOTER ── */
+.cert-footer-bar {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 8mm;
+  background: #1a3a5c;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 12mm;
+}
+.cert-footer-bar .fb-l, .cert-footer-bar .fb-r {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5.5pt; color: rgba(205,224,240,0.7);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.cert-footer-bar .fb-c {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7.5pt; color: #b8a040;
+  letter-spacing: 0.05em;
+}
+</style>
+
+<script>
+// ═══ DATA ═══════════════════════════════════
+const ANS = {
+  qa1:'C',qa2:'B',qa3:'D',qa4:'A',qa5:'C',
+  qa6:'B',qa7:'C',qa8:'D',qa9:'A',qa10:'C',
+  qa11:'B',qa12:'C',qa13:'A',qa14:'D',qa15:'B',
+  qb1:'C',qb2:'A',qb3:'B',qb4:'D',qb5:'C',
+  qb6:'B',qb7:'C',qb8:'D',qb9:'A',qb10:'C',
+  qb11:'B',qb12:'C',qb13:'C',qb14:'B',qb15:'B',
+  qb16:'A',qb17:'B',qb18:'C',qb19:'C',qb20:'B',
+  qc1:'B',qc2:'C',qc3:'A',qc4:'D',qc5:'B',
+  qc6:'B',qc7:'C',qc8:'B',qc9:'B',qc10:'B',
+  qe1:'C',qe2:'B',qe3:'D',qe4:'A',qe5:'C',
+  qe6:'B',qe7:'C',qe8:'D',qe9:'A',qe10:'C',
+  qe11:'B',qe12:'A',qe13:'B',qe14:'B',qe15:'B'
+};
+
+const EXPLAIN = {
+  qa1:'✅ Productive = Efficient. Both mean performing well with minimum waste of time/effort.',
+  qa2:'✅ Assured = Confident. Both convey self-belief and certainty.',
+  qa3:'✅ Examine = Analyze. To analyze is to examine something in detail.',
+  qa4:'✅ Prospect = Opportunity. Both refer to a favourable chance or opening.',
+  qa5:'✅ Dependable = Reliable. Someone you can trust to do what they say.',
+  qa6:'✅ Weakness is the direct opposite of Strength.',
+  qa7:'✅ Contract (shrink/reduce) is the antonym of Expand (grow/widen).',
+  qa8:'✅ Reject is the antonym of Accept.',
+  qa9:'✅ Decrease is the antonym of Increase.',
+  qa10:'✅ Failure is the antonym of Success.',
+  qa11:'✅ A Leader is someone who leads a team. Also acceptable: Manager, Head.',
+  qa12:'✅ Synopsis = a brief description or summary of a project or book.',
+  qa13:'✅ Glossophobia = fear of public speaking. Very common and very relevant to interviews!',
+  qa14:'✅ Applicant = a person who applies for a job or position.',
+  qa15:'✅ Application = a formal written request (e.g., leave application, job application).',
+  qb1:'✅ Use Simple Past ("completed") with past time words like "yesterday." Present Perfect cannot be used with "yesterday."',
+  qb2:'✅ "He does not know" is correct. With singular 3rd person (he/she/it), use "does not."',
+  qb3:'✅ "Since two years" is wrong. Use "for" with a duration of time. Present Perfect Continuous is correct here.',
+  qb4:'✅ "Information" is an uncountable noun — no plural. Correct verb: "is."',
+  qb5:'✅ "Each" takes a singular noun and singular pronoun. "Each student must submit his or her assignment."',
+  qb6:'✅ "I would like to apply for the position advertised" is formal, polite, and grammatically correct.',
+  qb7:'✅ Option C uses proper grammar, formal vocabulary, and clearly describes what was accomplished.',
+  qb8:'✅ Naming specific languages (Python, Java, C++) is far more professional and impressive than saying "very good in coding."',
+  qb9:'✅ Option A is the correct formal phrasing using indirect request style — polite and professional.',
+  qb10:'✅ Option C explains the absence formally and professionally without grammatical errors.',
+  qc1:'✅ The passage states: "communication skills play a crucial role in career success."',
+  qc2:'✅ "Employers assess how effectively a candidate can express ideas, work in teams, and handle professional conversations."',
+  qc3:'✅ "Strong communication builds confidence and creates a positive first impression during interviews."',
+  qc4:'✅ "Assess" means to judge or evaluate — used in the passage: "employers...assess how effectively."',
+  qc5:'✅ The passage discusses the role of communication in professional success — Option B is the most suitable title.',
+  qe1:'✅ "Responsible for" is the correct collocation. "She is responsible for managing the team."',
+  qe2:'✅ "Succeed in" is the correct collocation. "He succeeded in completing the task."',
+  qe3:'✅ Use "at" for specific clock times. "at 10 AM," "at noon," "at midnight."',
+  qe4:'✅ "Interested in" is the correct collocation. "She is interested in data science."',
+  qe5:'✅ "On time" = punctual, not late. "In time" = before a deadline. "Completed on time" is correct.',
+  qe6:'✅ Correct order: Subject (Communication skills) + Verb (are) + Adjective (important) + Prepositional phrase (in interviews).',
+  qe7:'✅ Correct order: Subject (The team) + Adverb (successfully) + Verb (completed) + Object (the project).',
+  qe8:'✅ Correct order: Subject (It) + Verb (was) + Determiner (a) + Adjective (great) + Noun phrase (learning opportunity).',
+  qe9:'✅ Correct order: I + am + preparing + for + the + interview. Standard Present Continuous.',
+  qe10:'✅ Correct: "True leadership shows confidence." Subject (True leadership) + Verb (shows) + Object (confidence).',
+  qb11:'✅ "Neither of the candidates was selected." — "Neither" takes a singular verb.',
+  qb12:'✅ "The news is shocking." — "News" is singular uncountable; always takes a singular verb.',
+  qb13:'✅ Past Perfect (had finished) is used for an action completed before another past action.',
+  qb14:'✅ "One of my friends is a doctor." — "One of" takes a plural noun but a singular verb.',
+  qb15:'✅ Use "an" before words beginning with a vowel sound. "Honest" starts with a vowel sound /ɒ/.',
+  qb16:'✅ Passive of Simple Past: Subject + was/were + Past Participle + by + Agent.',
+  qb17:'✅ Active of Passive "were made by the team" → "The team made mistakes." Simple Past active.',
+  qb18:'✅ "But" is used to show contrast between two opposite ideas.',
+  qb19:'✅ "If" introduces a conditional clause. "Unless" means "if not" — not suitable here.',
+  qb20:'✅ "Married to" is the correct preposition collocation. "Married with" is incorrect in Standard English.',
+  qc6:'✅ The passage states: "A good team is built on trust, clear communication, and shared goals."',
+  qc7:'✅ "Organisations with strong team culture report higher employee satisfaction and lower attrition rates."',
+  qc8:'✅ "Leaders who encourage open dialogue and recognise each member\'s contribution create an environment where creativity thrives."',
+  qc9:'✅ "Attrition" means the rate at which employees leave an organisation — used directly in the passage.',
+  qc10:'✅ The passage focuses on teamwork as a critical skill in the workplace, valued by both organisations and recruiters.',
+  qe11:'✅ "One of the best students" — after "one of the", a plural noun is required.',
+  qe12:'✅ "Despite of" is incorrect. "Despite" is a preposition and is never followed by "of".',
+  qe13:'✅ "Explain" is not used with an indirect object directly. Correct: "explained to me."',
+  qe14:'✅ "Committee" is a collective noun treated as singular in formal usage. Use "has decided."',
+  qe15:'✅ "Look forward to" is a phrasal verb — "to" is a preposition here, so it must be followed by a gerund: "to meeting."'
+};
+
+// ═══ STATE ══════════════════════════════════
+let done = {};
+let secScores = {a:0,b:0,c:0,e:0};
+let secTotal  = {a:15,b:20,c:10,e:15}; // MCQ totals = 60
+let timerSecs = 7200;
+let timerInt;
+const TOTAL_MCQ = 60;
+
+// ═══ COVER ══════════════════════════════════
+function startAssessment() {
+  document.getElementById('cover').style.display = 'none';
+  document.getElementById('app').classList.add('show');
+  startTimer();
+}
+
+// ═══ TIMER ══════════════════════════════════
+function startTimer() {
+  timerInt = setInterval(() => {
+    timerSecs--;
+    const h = String(Math.floor(timerSecs/3600)).padStart(2,'0');
+    const m = String(Math.floor((timerSecs%3600)/60)).padStart(2,'0');
+    const s = String(timerSecs%60).padStart(2,'0');
+    const el = document.getElementById('hdrTimer');
+    el.textContent = `⏱ ${h}:${m}:${s}`;
+    if (timerSecs <= 300) el.classList.add('warning');
+    if (timerSecs <= 0) { clearInterval(timerInt); el.textContent = '⏱ Time Up!'; }
+  }, 1000);
+}
+
+// ═══ MCQ LOGIC ══════════════════════════════
+function pick(el, qid) {
+  if (done[qid]) return;
+  done[qid] = true;
+
+  const card = document.getElementById(qid);
+  const opts = Array.from(card.querySelectorAll('.option'));
+  const correct = ANS[qid];
+  const keys = ['A','B','C','D'];
+
+  // Detect which key the student actually clicked
+  const choice = keys[opts.indexOf(el)];
+
+  opts.forEach((o, i) => {
+    if (keys[i] === correct) o.classList.add('correct');
+    else if (o === el && keys[i] !== correct) o.classList.add('wrong');
+  });
+
+  const fb = document.getElementById('fb-' + qid);
+  if (choice === correct) {
+    fb.className = 'feedback show fb-correct';
+    fb.innerHTML = EXPLAIN[qid] || '✅ Correct!';
+    // Tally scores
+    if (qid.startsWith('qa')) secScores.a++;
+    else if (qid.startsWith('qb')) secScores.b++;
+    else if (qid.startsWith('qc')) secScores.c++;
+    else if (qid.startsWith('qe')) secScores.e++;
+    card.classList.add('answered');
+  } else {
+    fb.className = 'feedback show fb-wrong';
+    fb.innerHTML = (EXPLAIN[qid]||'').replace('✅','❌') || `❌ Correct answer: <strong>${correct}</strong>.`;
+    card.classList.add('answered-wrong');
+  }
+
+  updateUI();
+}
+
+// ═══ PROGRESS & SCORE ═══════════════════════
+function updateUI() {
+  const n = Object.keys(done).length;
+  const total = secScores.a + secScores.b + secScores.c + secScores.e;
+  document.getElementById('progFill').style.width = (n/TOTAL_MCQ*100).toFixed(1) + '%';
+  document.getElementById('hdrScore').textContent = `Score: ${total}`;
+  updateResults(n, total);
+}
+
+function updateResults(n, total) {
+  const pct = n > 0 ? Math.round(total/n*100) : 0;
+  document.getElementById('rBig').textContent = n > 0 ? `${total} / ${n} correct` : '—';
+  document.getElementById('finalPct').textContent = n > 0 ? pct + '%' : '—';
+  document.getElementById('rSub').textContent =
+    pct >= 80 ? '🎉 Excellent! You are placement-ready.' :
+    pct >= 65 ? '👍 Good effort! Focus on weaker areas.' :
+    n > 0 ? '📚 Keep practising. You can do it!' : 'Complete sections to see your score.';
+
+  // Section bars
+  setSectionScore('a', secScores.a, 15, '#d4a843');
+  setSectionScore('b', secScores.b, 20, '#0d1b2a');
+  setSectionScore('c', secScores.c, 10, '#1e7e5a');
+  setSectionScore('e', secScores.e, 15, '#6d28d9');
+
+  document.getElementById('rs-att').textContent = `${n} / ${TOTAL_MCQ}`;
+  document.getElementById('rf-att').style.width = (n/TOTAL_MCQ*100).toFixed(0)+'%';
+  document.getElementById('rs-acc').textContent = n>0 ? pct+'%' : '—%';
+  document.getElementById('rf-acc').style.width = pct+'%';
+
+  // Tips
+  buildTips(pct);
+}
+
+function setSectionScore(sec, score, max, color) {
+  const el = document.getElementById('rs-'+sec);
+  const at = Object.keys(done).filter(k=>k.startsWith('q'+sec)).length;
+  if (at > 0) {
+    const p = Math.round(score/at*100);
+    el.textContent = score+'/'+at;
+    el.style.color = p>=75?'var(--green)':p>=55?'var(--orange)':'var(--red)';
+    document.getElementById('rf-'+sec).style.width = Math.round(score/max*100)+'%';
+    document.getElementById('rf-'+sec).style.background = color;
+  }
+}
+
+function buildTips(pct) {
+  let html = '';
+  const vAtt = Object.keys(done).filter(k=>k.startsWith('qa')).length;
+  const gAtt = Object.keys(done).filter(k=>k.startsWith('qb')).length;
+  const cAtt = Object.keys(done).filter(k=>k.startsWith('qc')).length;
+  const eAtt = Object.keys(done).filter(k=>k.startsWith('qe')).length;
+
+  if (vAtt>0 && secScores.a/vAtt<0.7) html+=`<div class="tip-item">📖 <div><strong>Vocabulary Needs Work:</strong> Read 5 new words daily from business newspapers. Maintain a vocabulary diary with usage examples.</div></div>`;
+  else if (vAtt>0) html+=`<div class="tip-item">🌟 <div><strong>Strong Vocabulary!</strong> You are ready for word-based aptitude rounds. Now focus on using rich vocabulary in your writing tasks.</div></div>`;
+
+  if (gAtt>0 && secScores.b/gAtt<0.7) html+=`<div class="tip-item">✏️ <div><strong>Grammar Needs Practice:</strong> Revise uncountable nouns, tense rules, and preposition collocations. Practice Wren & Martin exercises daily.</div></div>`;
+  else if (gAtt>0) html+=`<div class="tip-item">✅ <div><strong>Grammar is Strong!</strong> Convert this into higher scores by focusing on formal writing and error-free professional emails.</div></div>`;
+
+  if (cAtt>0 && secScores.c/cAtt<0.7) html+=`<div class="tip-item">📰 <div><strong>Reading Comprehension:</strong> Read short editorial articles and practice summarising them in 3–4 sentences. Focus on identifying key ideas.</div></div>`;
+
+  if (eAtt>0 && secScores.e/eAtt<0.7) html+=`<div class="tip-item">🧠 <div><strong>Aptitude Verbal Ability:</strong> Practise preposition collocations and sentence rearrangement from IndiaBix and RS Aggarwal Verbal Reasoning.</div></div>`;
+
+  html+=`<div class="tip-item">💼 <div><strong>Writing Tasks:</strong> Use the AI Writing Coach in Sections D and F to get personalised feedback on your email, self-introduction, and HR answers.</div></div>`;
+  html+=`<div class="tip-item">🎯 <div><strong>Next Step:</strong> Mock interviews — practice speaking your Section F answers aloud in front of a mirror. Record yourself and review for improvement.</div></div>`;
+
+  document.getElementById('tipsList').innerHTML = html || '<div class="tip-item">Complete sections to unlock tips.</div>';
+}
+
+// ═══ NAVIGATION ═════════════════════════════
+// ═══ SECTION QUESTION MAPS (mandatory sections) ═══
+const SECTION_QUESTIONS = {
+  0: ['qa1','qa2','qa3','qa4','qa5','qa6','qa7','qa8','qa9','qa10','qa11','qa12','qa13','qa14','qa15'],
+  1: ['qb1','qb2','qb3','qb4','qb5','qb6','qb7','qb8','qb9','qb10','qb11','qb12','qb13','qb14','qb15','qb16','qb17','qb18','qb19','qb20'],
+  2: ['qc1','qc2','qc3','qc4','qc5','qc6','qc7','qc8','qc9','qc10'],
+  4: ['qe1','qe2','qe3','qe4','qe5','qe6','qe7','qe8','qe9','qe10','qe11','qe12','qe13','qe14','qe15']
+};
+// Sections 3 (D-Writing) and 5 (F-Interview) are optional for locking
+
+let curSec = 0;
+
+function getMissing(secIndex) {
+  const qs = SECTION_QUESTIONS[secIndex];
+  if (!qs) return [];
+  return qs.filter(q => !done[q]);
+}
+
+function highlightUnanswered(secIndex) {
+  const missing = getMissing(secIndex);
+  // Flash unanswered cards
+  missing.forEach(qid => {
+    const card = document.getElementById(qid);
+    if (card) {
+      card.style.transition = 'box-shadow 0.3s, border-color 0.3s';
+      card.style.borderColor = '#b91c1c';
+      card.style.boxShadow = '0 0 0 3px rgba(185,28,28,0.18)';
+      setTimeout(() => {
+        card.style.borderColor = '';
+        card.style.boxShadow = '';
+      }, 2500);
+      // Scroll to first unanswered
+    }
+  });
+  if (missing.length > 0) {
+    const firstCard = document.getElementById(missing[0]);
+    if (firstCard) firstCard.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+  return missing.length;
+}
+
+function showSectionAlert(missing) {
+  const existing = document.getElementById('sectionAlert');
+  if (existing) existing.remove();
+  const alert = document.createElement('div');
+  alert.id = 'sectionAlert';
+  alert.style.cssText = `position:fixed;top:80px;left:50%;transform:translateX(-50%);z-index:9000;
+    background:#b91c1c;color:white;padding:12px 24px;border-radius:8px;
+    font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:600;
+    box-shadow:0 8px 32px rgba(185,28,28,0.35);
+    display:flex;align-items:center;gap:10px;max-width:480px;text-align:center;`;
+  alert.innerHTML = `⚠ Please answer all ${missing} unanswered question(s) before proceeding to the next section.`;
+  document.body.appendChild(alert);
+  setTimeout(() => { if (alert.parentNode) alert.remove(); }, 3500);
+}
+
+function goSection(n) {
+  // Enforce mandatory answering for A(0), B(1), C(2), E(4)
+  const mandatory = [0, 1, 2, 4];
+  if (mandatory.includes(curSec) && n > curSec) {
+    const missing = getMissing(curSec);
+    if (missing.length > 0) {
+      highlightUnanswered(curSec);
+      showSectionAlert(missing.length);
+      return;
+    }
+  }
+  document.querySelectorAll('.section-page').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('sec'+n).classList.add('active');
+  document.getElementById('ntab'+n).classList.add('active');
+  curSec = n;
+  window.scrollTo({top:0,behavior:'smooth'});
+  if (n===6) updateUI();
+}
+
+// Also lock nav tabs from jumping forward over unanswered sections
+function navGoSection(n) {
+  // Only allow going to sections already unlocked or going back
+  if (n > curSec) {
+    // Check all mandatory sections between curSec and n
+    const mandatory = [0, 1, 2, 4];
+    for (let i = curSec; i < n; i++) {
+      if (mandatory.includes(i)) {
+        const missing = getMissing(i);
+        if (missing.length > 0) {
+          // Switch to that section first
+          document.querySelectorAll('.section-page').forEach(s=>s.classList.remove('active'));
+          document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+          document.getElementById('sec'+i).classList.add('active');
+          document.getElementById('ntab'+i).classList.add('active');
+          curSec = i;
+          window.scrollTo({top:0,behavior:'smooth'});
+          setTimeout(() => {
+            highlightUnanswered(i);
+            showSectionAlert(missing.length);
+          }, 300);
+          return;
+        }
+      }
+    }
+  }
+  goSection(n);
+}
+
+// ═══ WRITING HELPERS ════════════════════════
+function wc(tid, cid) {
+  const t = document.getElementById(tid).value.trim();
+  document.getElementById(cid).textContent = t ? t.split(/\s+/).length : 0;
+}
+
+function toggleModel(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('show');
+}
+
+// ═══ AI FEEDBACK ════════════════════════════
+const PROMPTS = {
+  email: 'You are a professional English writing coach for Indian engineering students preparing for campus placements. Evaluate this professional email written for a Software Developer Internship application. Give structured feedback on: 1) Subject line quality, 2) Formal tone and salutation, 3) Grammar and language errors (cite specific mistakes if any), 4) Skills and content presentation, 5) Closing and signature. Then rate: Format /10, Grammar /10, Professionalism /10. Keep total response under 200 words. Be specific, constructive, and encouraging.',
+  para: 'You are a placement training expert. Evaluate this paragraph written in response to "Why should a company hire you?" Give structured feedback on: 1) Opening statement — is it compelling? 2) Skills and examples provided, 3) Professional strengths highlighted, 4) Grammar and vocabulary quality, 5) Conclusion strength. Rate: Structure /10, Content /10, Language /10. Keep total response under 200 words.',
+  intro: 'You are a senior HR interviewer and placement coach. Evaluate this campus interview self-introduction. Give structured feedback on: 1) Opening — is it confident and engaging? 2) Educational background coverage, 3) Skills and projects mentioned with impact, 4) Career goal alignment, 5) Overall professional tone. Rate: Confidence /10, Content /10, Language /10. Keep total under 200 words.',
+  sw: 'You are a placement and HR interview expert. Evaluate this answer to "What are your strengths and weaknesses?" Give structured feedback on: 1) Strengths — are they professional and backed by examples? 2) Weakness — is it honest yet strategic? 3) Growth mindset — does the candidate show they are actively improving? 4) Grammar and professional language. Rate: Honesty /10, Strategy /10, Language /10. Keep total under 200 words.'
+};
+
+async function aiAnalyze(inputId, fbId, btnId, spId, type) {
+  const text = document.getElementById(inputId).value.trim();
+  if (text.length < 40) { alert('Please write more before requesting AI feedback!'); return; }
+
+  const btn = document.getElementById(btnId);
+  const sp = document.getElementById(spId);
+  btn.disabled = true; sp.style.display = 'block';
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: PROMPTS[type],
+        messages: [{role:'user', content: text}]
+      })
+    });
+    const data = await res.json();
+    const reply = data.content.map(b=>b.text||'').join('');
+
+    document.getElementById(fbId+'-text').innerHTML =
+      reply.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+
+    const matches = reply.match(/([A-Za-z\s\/]+):\s*(\d+)\s*\/\s*10/g);
+    const scEl = document.getElementById(fbId+'-scores');
+    if (matches && scEl) {
+      scEl.innerHTML = matches.map(m=>`<span class="ai-score-chip">${m.trim()}</span>`).join('');
+    }
+    document.getElementById(fbId).classList.add('show');
+  } catch(e) {
+    document.getElementById(fbId+'-text').innerHTML = '⚠️ Could not connect to AI service. Check your connection and try again.';
+    document.getElementById(fbId).classList.add('show');
+  } finally {
+    btn.disabled = false; sp.style.display = 'none';
+  }
+}
+
+// ═══ CERTIFICATE MODAL ══════════════════════
+function openCertModal() {
+  const m = document.getElementById('certModal');
+  m.style.display = 'flex';
+}
+function closeCertModal() {
+  document.getElementById('certModal').style.display = 'none';
+  document.getElementById('certErr').style.display = 'none';
+}
+
+function getGrade(pct) {
+  if (pct >= 90) return 'O — Outstanding';
+  if (pct >= 80) return 'A+ — Excellent';
+  if (pct >= 70) return 'A — Very Good';
+  if (pct >= 60) return 'B+ — Good';
+  if (pct >= 50) return 'B — Average';
+  return 'C — Needs Improvement';
+}
+
+function getStatus(pct) {
+  return pct >= 50 ? '✔ PASS' : '✘ NEEDS IMPROVEMENT';
+}
+
+function getStatusColor(pct) {
+  return pct >= 50 ? '#15803d' : '#b91c1c';
+}
+
+function buildImprovementItems() {
+  const vAtt = Object.keys(done).filter(k=>k.startsWith('qa')).length;
+  const gAtt = Object.keys(done).filter(k=>k.startsWith('qb')).length;
+  const cAtt = Object.keys(done).filter(k=>k.startsWith('qc')).length;
+  const eAtt = Object.keys(done).filter(k=>k.startsWith('qe')).length;
+  let items = [];
+
+  if (vAtt > 0) {
+    const p = Math.round(secScores.a / vAtt * 100);
+    if (p < 70) items.push({tag:'VOCAB', text:'Read 5 new business/corporate words daily. Maintain a vocabulary diary with synonyms, antonyms and example sentences.'});
+    else items.push({tag:'VOCAB', text:'Vocabulary is strong. Channel this strength into your writing tasks and use richer language in emails and self-introduction.'});
+  }
+  if (gAtt > 0) {
+    const p = Math.round(secScores.b / gAtt * 100);
+    if (p < 70) items.push({tag:'GRAMMAR', text:'Revise tense rules, uncountable nouns (information, advice), and preposition collocations. Practice 10 error-correction exercises daily.'});
+    else items.push({tag:'GRAMMAR', text:'Grammar is solid. Focus on formal email conventions and professional sentence structuring for placement rounds.'});
+  }
+  if (cAtt > 0) {
+    const p = Math.round(secScores.c / cAtt * 100);
+    if (p < 70) items.push({tag:'READING', text:'Read one editorial article daily from The Hindu or Economic Times. Practice summarising each in 3–4 sentences to improve comprehension speed.'});
+    else items.push({tag:'READING', text:'Reading comprehension is excellent. Maintain by reading diverse content including technical blogs and business articles.'});
+  }
+  if (eAtt > 0) {
+    const p = Math.round(secScores.e / eAtt * 100);
+    if (p < 70) items.push({tag:'APTITUDE', text:'Practise verbal aptitude from IndiaBix and RS Aggarwal. Focus on preposition collocations and sentence rearrangement (para jumbles).'});
+    else items.push({tag:'APTITUDE', text:'Verbal aptitude is strong. Extend practice to logical reasoning and numerical aptitude for full placement readiness.'});
+  }
+  items.push({tag:'WRITING', text:'Use the AI Writing Coach to refine your professional email, self-introduction, and HR answers. Practice speaking answers aloud daily.'});
+  items.push({tag:'INTERVIEW', text:'Conduct 2 mock interviews per week. Record yourself, review for filler words, and improve eye contact and structured delivery.'});
+  return items;
+}
+
+function generateAndPrint() {
+  const admNo = document.getElementById('certAdmNo').value.trim();
+  const name  = document.getElementById('certName').value.trim();
+  const batch = document.getElementById('certBatch').value.trim();
+
+  if (!admNo || !name || !batch) {
+    document.getElementById('certErr').style.display = 'block';
+    return;
+  }
+  document.getElementById('certErr').style.display = 'none';
+  closeCertModal();
+
+  const n = Object.keys(done).length;
+  const total = secScores.a + secScores.b + secScores.c + secScores.e;
+  const pct = n > 0 ? Math.round(total / n * 100) : 0;
+  const dateStr = new Date().toLocaleDateString('en-IN', {day:'2-digit', month:'long', year:'numeric'});
+
+  // Section detail rows
+  const vAtt = Object.keys(done).filter(k=>k.startsWith('qa')).length;
+  const gAtt = Object.keys(done).filter(k=>k.startsWith('qb')).length;
+  const cAtt = Object.keys(done).filter(k=>k.startsWith('qc')).length;
+  const eAtt = Object.keys(done).filter(k=>k.startsWith('qe')).length;
+
+  function pctColor(s, t) {
+    if (t === 0) return '#6b7280';
+    const p = s/t*100;
+    return p >= 75 ? '#15803d' : p >= 55 ? '#c2410c' : '#b91c1c';
+  }
+  function barColor(s, t) {
+    if (t === 0) return '#ddd8ce';
+    const p = s/t*100;
+    return p >= 75 ? '#15803d' : p >= 55 ? '#d97706' : '#b91c1c';
+  }
+
+  const rows = [
+    {label:'A · Vocabulary', sub:'Synonyms · Antonyms · One Word Substitution', max:15, score: vAtt>0 ? Math.round(secScores.a/vAtt*15) : 0, raw:`${secScores.a}/${vAtt} correct`},
+    {label:'B · Grammar', sub:'Error ID · Formal Rewriting · Tenses · Active/Passive', max:20, score: gAtt>0 ? Math.round(secScores.b/gAtt*20) : 0, raw:`${secScores.b}/${gAtt} correct`},
+    {label:'C · Reading', sub:'Passage 1 + Passage 2 Comprehension', max:10, score: cAtt>0 ? Math.round(secScores.c/cAtt*10) : 0, raw:`${secScores.c}/${cAtt} correct`},
+    {label:'D · Writing', sub:'Email + Paragraph Writing', max:20, score:'—', raw:'Trainer Evaluated'},
+    {label:'E · Aptitude Verbal', sub:'Fill in Blanks · Rearrangement · Error Spotting', max:15, score: eAtt>0 ? Math.round(secScores.e/eAtt*15) : 0, raw:`${secScores.e}/${eAtt} correct`},
+    {label:'F · Interview Writing', sub:'Self Introduction · HR Answer', max:20, score:'—', raw:'Trainer Evaluated'},
+  ];
+
+  const rowsHTML = rows.map(r => `
+    <tr>
+      <td><strong>${r.label}</strong> <span style="color:#9ca3af;font-size:6pt;">${r.sub}</span></td>
+      <td>${r.max}</td>
+      <td>${r.raw}</td>
+      <td style="color:${typeof r.score === 'number' ? pctColor(r.score, r.max) : '#9ca3af'}">${r.score}</td>
+    </tr>`).join('');
+
+  const perfItems = [
+    {label:'Vocab', score: vAtt>0?secScores.a:0, max:vAtt||1, color:'#d4a843'},
+    {label:'Grammar', score: gAtt>0?secScores.b:0, max:gAtt||1, color:'#0d1b2a'},
+    {label:'Reading', score: cAtt>0?secScores.c:0, max:cAtt||1, color:'#1a6b6b'},
+    {label:'Aptitude', score: eAtt>0?secScores.e:0, max:eAtt||1, color:'#6d28d9'},
+  ];
+
+  const perfHTML = perfItems.map(p => {
+    const pp = Math.round(p.score/p.max*100);
+    return `<div class="cpi">
+      <div class="pi-lbl">${p.label}</div>
+      <div class="pi-val" style="color:${barColor(p.score,p.max)}">${pp}%</div>
+      <div class="pi-bar"><div class="pi-fill" style="width:${pp}%;background:${barColor(p.score,p.max)};"></div></div>
+    </div>`;
+  }).join('');
+
+  const improvItems = buildImprovementItems();
+  const improvHTML = improvItems.map(i => `
+    <div class="cimp-item">
+      <span class="itag">${i.tag}</span>
+      <span>${i.text}</span>
+    </div>`).join('');
+
+  const mcqTotal = total;
+  const mcqMax = n;
+  const mcqPct = mcqMax > 0 ? Math.round(mcqTotal/mcqMax*100) : 0;
+
+  document.getElementById('printCert').innerHTML = `
+  <div class="cert-page">
+    <div class="cert-topbar"></div>
+    <div class="cert-inner">
+
+      <div class="ch">
+        <div class="ch-left">
+          <div class="inst">Placement Preparation Programme &nbsp;·&nbsp; English Communication Assessment</div>
+          <div class="title">Performance Certificate</div>
+          <div class="sub">Official Academic Record &nbsp;·&nbsp; ${dateStr}</div>
+        </div>
+        <div class="ch-badge">
+          <div class="cb-lbl">Total Marks</div>
+          <div class="cb-val">100</div>
+          <div class="cb-sub">Duration: 2 Hours</div>
+        </div>
+      </div>
+
+      <div class="cert-rule"><span>Student Information</span></div>
+
+      <div class="csrow">
+        <div class="sf"><span class="sl">Admission No.</span><span class="sv">${admNo}</span></div>
+        <div class="sf"><span class="sl">Full Name</span><span class="sv">${name}</span></div>
+        <div class="sf"><span class="sl">Batch / Year</span><span class="sv">${batch}</span></div>
+        <div class="sf"><span class="sl">Date of Assessment</span><span class="sv">${dateStr}</span></div>
+      </div>
+
+      <div class="cert-rule"><span>Score Summary</span></div>
+
+      <div class="cscore">
+        <div class="cscore-cell">
+          <div class="scc-lbl">MCQ Score (Auto-graded)</div>
+          <div class="scc-val">${mcqTotal} <span style="font-size:9pt;color:#7a8a9a;">/ ${mcqMax}</span></div>
+          <div class="scc-sub">Questions Correct</div>
+        </div>
+        <div class="cscore-cell highlight">
+          <div class="scc-lbl">Accuracy Rate</div>
+          <div class="scc-val">${mcqPct}%</div>
+          <div class="scc-sub">Correct Answers</div>
+        </div>
+        <div class="cscore-cell">
+          <div class="scc-lbl">Grade</div>
+          <div class="scc-val" style="font-size:11pt;">${getGrade(mcqPct).split('—')[0].trim()}</div>
+          <div class="scc-sub">${getGrade(mcqPct).split('—')[1]?.trim() || ''}</div>
+        </div>
+        <div class="cscore-cell">
+          <div class="scc-lbl">Status</div>
+          <div class="scc-val ${mcqPct>=50?'status-pass':'status-fail'}" style="font-size:10pt;">${getStatus(mcqPct)}</div>
+          <div class="scc-sub">Based on MCQ</div>
+        </div>
+      </div>
+
+      <div class="cert-rule"><span>Section-wise Marks</span></div>
+
+      <table class="ctbl">
+        <thead><tr>
+          <th>Section</th>
+          <th>Max Marks</th>
+          <th>MCQ Performance</th>
+          <th>Score</th>
+        </tr></thead>
+        <tbody>${rowsHTML}</tbody>
+        <tfoot><tr>
+          <td colspan="2">Grand Total &nbsp;(Sections D &amp; F require Trainer evaluation)</td>
+          <td style="color:rgba(205,224,240,0.6);font-size:5.5pt;">+ Trainer Marks</td>
+          <td>/ 100</td>
+        </tr></tfoot>
+      </table>
+
+      <div class="cert-rule"><span>Section-wise MCQ Performance</span></div>
+      <div class="cprow">${perfHTML}</div>
+
+      <div class="cert-rule"><span>Personalised Improvement Plan</span></div>
+      <div class="cimp">
+        <h4>Recommendations for ${name}</h4>
+        <div class="cimp-grid">${improvHTML}</div>
+      </div>
+
+    </div><!-- /cert-inner -->
+
+    <div class="cert-footer-bar">
+      <div class="fb-l">Adm. No: ${admNo}</div>
+      <div class="fb-c">English Communication &amp; Placement Readiness Assessment</div>
+      <div class="fb-r">${dateStr} &nbsp;·&nbsp; Confidential</div>
+    </div>
+  </div>`;
+
+  const pc = document.getElementById('printCert');
+  pc.style.display = 'block';
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => { pc.style.display = 'none'; }, 1000);
+  }, 300);
+}
+
+// ═══ RESTART ════════════════════════════════
+function restartAll() {
+  if (confirm('Restart and clear all answers?')) location.reload();
+}
+</script>
+</body>
+</html>
