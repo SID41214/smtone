@@ -598,7 +598,7 @@ textarea.ans-input { min-height: 120px; line-height: 1.6; }
         <li>Avoid informal language, contractions, and short forms.</li>
         <li>Marks will be deducted for grammar errors and poor structure.</li>
         <li>Use the Writing Tasks to get AI-powered feedback on your answers.</li>
-        <li>Click "Show Model Answer" after attempting each open-ended question.</li>
+        <!-- <li>Click "Show Model Answer" after attempting each open-ended question.</li> -->
       </ul>
     </div>
     <button class="start-btn" onclick="startAssessment()">▶ Begin Assessment</button>
@@ -1742,11 +1742,11 @@ textarea.ans-input { min-height: 120px; line-height: 1.6; }
       </div>
       <div>
         <label style="font-size:0.78rem;font-weight:600;color:#0d1b2a;display:block;margin-bottom:5px;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;">Full Name *</label>
-        <input id="certName" type="text" placeholder="e.g. Priya Sharma" style="width:100%;padding:0.75rem 1rem;border:1.5px solid #ddd8ce;border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#ddd8ce'">
+        <input id="certName" type="text" placeholder="e.g. Alex" style="width:100%;padding:0.75rem 1rem;border:1.5px solid #ddd8ce;border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#ddd8ce'">
       </div>
       <div>
-        <label style="font-size:0.78rem;font-weight:600;color:#0d1b2a;display:block;margin-bottom:5px;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;">Batch / Year *</label>
-        <input id="certBatch" type="text" placeholder="e.g. 2022–2026 / CSE-B" style="width:100%;padding:0.75rem 1rem;border:1.5px solid #ddd8ce;border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#ddd8ce'">
+        <label style="font-size:0.78rem;font-weight:600;color:#0d1b2a;display:block;margin-bottom:5px;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;">Batch *</label>
+        <input id="certBatch" type="text" placeholder="DATA SCIENCE/DATA ANALYTICS/ROBOTICS" style="width:100%;padding:0.75rem 1rem;border:1.5px solid #ddd8ce;border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#ddd8ce'">
       </div>
       <div id="certErr" style="color:#b91c1c;font-size:0.82rem;display:none;">⚠ Please fill in all fields before proceeding.</div>
       <button onclick="generateAndPrint()" style="margin-top:0.5rem;background:#0d1b2a;color:#d4a843;border:none;padding:12px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#1b2d42'" onmouseout="this.style.background='#0d1b2a'">
